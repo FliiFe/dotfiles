@@ -79,3 +79,9 @@ new_task 'Copy ~/.fehbg and background image'
 cp ~/.fehbg .
 cp -L ~/.bg .
 done_task $status
+
+## i3lock
+new_task 'Copy lock script'
+mkdir bin
+cp ~/bin/lock bin/lock
+done_task $status
