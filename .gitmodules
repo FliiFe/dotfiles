@@ -1,0 +1,6 @@
+[submodule "third-party/vim-plug"]
+	path = third-party/vim-plug
+	url = https://github.com/junegunn/vim-plug.git
+[submodule "third-party/tpm"]
+	path = third-party/tpm
+	url = https://github.com/tmux-plugins/tpm

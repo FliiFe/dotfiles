@@ -1,0 +1,5 @@
+#!/bin/fish
+
+set weather (curl ^/dev/null http://www.prevision-meteo.ch/services/json/lys-lez-lannoy | node -e 'content="";process.stdin.resume();process.stdin.on("data", d=>content+=d.toString());process.stdin.on("end", _=>{w=JSON.parse(content).current_condition;console.log(w.tmp);console.log(w.condition);})')
+
+echo $weather | sed s/\ /°C,\ /
