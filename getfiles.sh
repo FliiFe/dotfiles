@@ -70,5 +70,12 @@ done_task $status
 
 ## xsession
 new_task 'Copying xprofile'
-cp ~/.xprofile ~/.xinitrc .
+cp ~/.xprofile .
+ln -s ~/.xprofile .xinitrc
+done_task $status
+
+## fehbg and background
+new_task 'Copy ~/.fehbg and background image'
+cp ~/.fehbg .
+cp -L ~/.bg .
 done_task $status
