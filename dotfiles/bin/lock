@@ -1,0 +1,24 @@
+#!/usr/bin/env fish
+
+i3lock -k -B=4 \
+    --textcolor=eeeeeeee \
+    --timecolor=eeeeeeee \
+    --datecolor=eeeeeeee \
+    --indicator \
+    --timefont="Roboto Medium" \
+    --datefont="Roboto" \
+    --datesize=14 \
+    --insidecolor=55555580 \
+    --ringcolor=ffffff00 \
+    --line-uses-inside \
+    --radius 100 \
+    --separator=00000000 \
+    --keyhlcolor=5fdf5fff \
+    --bshlcolor=df5f5fff \
+    --ringwrongcolor=ffffff00 \
+    --ringvercolor=ffffff00 \
+    --insidevercolor=55555580 \
+    --veriftext="..." \
+    --wrongtext="Error !" \
+    --insidewrongcolor=df5f5fff \
+    --ringwrongcolor=ffffff00
