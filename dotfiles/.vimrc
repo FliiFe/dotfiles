@@ -237,3 +237,5 @@ command ToggleColorColumn :let &cc = &cc == '' ? 100 : ''
 noremap <F10> :ToggleColorColumn<CR>
 
 set inccommand=split
+
+let g:gutentags_cache_dir = '/tmp/tags'
