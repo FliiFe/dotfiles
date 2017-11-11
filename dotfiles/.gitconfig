@@ -1,0 +1,14 @@
+[user]
+	email = theophile.cailliau@gmail.com
+	name = FliiFe
+	signingkey = 9F05EC6BC75A6753
+[http]
+	postBuffer = 524288000
+[color]
+	ui = auto
+[push]
+	default = matching
+[core]
+	autocrlf = input
+[commit]
+	gpgsign = true

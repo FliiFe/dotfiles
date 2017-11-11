@@ -20,7 +20,7 @@ tar czf /tmp/dotfiles-(date +'%y-%m-%d-%H:%M:%S').tar.gz * .*
 git rev-parse --git-dir 2>/dev/null >/dev/null; and set isgit '\e[32m is'; or set isgit '\e[31m is not'
 read -P (printf 'Current directory is \e[32m'(pwd)'\e[0m;, and'$isgit' a git repository\e[0m. Delete current dotfiles ? (delete/abort) ') answer
 if test "$answer" = "delete"
-    new_task 'Removing current dotfiles'
+    new_task 'Remove current dotfiles'
     rm -rf dotfiles
     done_task "$status"
 else
@@ -32,56 +32,61 @@ mkdir dotfiles
 cd dotfiles
 
 ## Vim
-new_task 'Copying vimrc'
+new_task 'vimrc'
 cp ~/.vimrc .
 done_task $status
-new_task 'Copying vim config'
+new_task 'vim config'
 mkdir -p .vim
 cp -r ~/.vim/{init.vim,plug.vim} .vim
 done_task $status
 
 ## Tmux
-new_task 'Copying tmux config file'
+new_task 'tmux config file'
 cp ~/.tmux.conf .
 done_task $status
 
 ## i3
-new_task 'Copying i3 config file'
+new_task 'i3 config file'
 mkdir -p .config/i3
 cp ~/.config/i3/config .config/i3/config
 done_task $status
 
 ## polybar
-new_task 'Copying polybar config file'
+new_task 'polybar config file'
 mkdir -p .config/polybar
 cp ~/.config/polybar/{config,weather} .config/polybar/
 done_task $status
 
 ## fish
-new_task 'Copying fish config'
+new_task 'fish config'
 mkdir -p .config/fish
 cp -r ~/.config/fish/{config.fish,functions} .config/fish/
 done_task $status
 
 ## urxvt & rofi
-new_task 'Copying rofi and urxvt config (Xresources)'
+new_task 'rofi and urxvt config (Xresources)'
 cp ~/.Xresources .
 done_task $status
 
 ## xsession
-new_task 'Copying xprofile'
+new_task 'xprofile'
 cp ~/.xprofile .
 ln -s ~/.xprofile .xinitrc
 done_task $status
 
 ## fehbg and background
-new_task 'Copy ~/.fehbg and background image'
+new_task '~/.fehbg and background image'
 cp ~/.fehbg .
 cp -L ~/.bg .
 done_task $status
 
 ## i3lock
-new_task 'Copy lock script'
+new_task 'lock script'
 mkdir bin
 cp ~/bin/lock bin/lock
+done_task $status
+
+## Git config
+new_task 'git config'
+cp ~/.gitconfig .gitconfig
 done_task $status

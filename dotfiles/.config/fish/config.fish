@@ -1,7 +1,7 @@
 set -gx VISUAL "nvim"
 set -gx EDITOR "nvim"
 set -gx PATH $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.1.0/bin
-
+set -gx GPG_TTY (tty)
 
 # Base16 Colourscheme
 if status --is-interactive

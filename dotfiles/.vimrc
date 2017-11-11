@@ -108,7 +108,7 @@ nnoremap <silent> <C-]> :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " Automatically start language servers.
-let g:LanguageClient_autoStart = 1
+let g:LanguageClient_autoStart=1
 
 set formatexpr=LanguageClient_textDocument_rangeFormatting()
 
