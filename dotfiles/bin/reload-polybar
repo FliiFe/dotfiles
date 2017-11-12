@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+killall polybar
+
+nohup polybar first 2>&1 >/dev/null &
+nohup polybar second 2>&1 >/dev/null & 
+nohup polybar third 2>&1 >/dev/null &

@@ -9,7 +9,8 @@ width = 100%
 height = 25
 
 ; Background argb color (e.g. #f00, #ff992a, #ddff1023)
-background = #d80f0f0f
+; background = #d80f0f0f
+background = #b30f0f0f
 
 ; Foreground argb color (e.g. #f00, #ff992a, #ddff1023)
 foreground = #00000000
@@ -56,7 +57,7 @@ monitor = HDMI-A-0
 [bar/third]
 inherit = bar/first
 monitor = DVI-I-1
-background = #ff111111
+; background = #ff111111
 
 [module/cpu]
 type = internal/cpu
@@ -116,7 +117,7 @@ label-mode-foreground = #dadada
 
 label-focused = %index%
 label-focused-foreground = #dadada
-label-focused-background = #2a2a2a
+label-focused-background = #b82a2a2a
 label-focused-underline = #dadada
 label-focused-padding = 4
 
@@ -127,12 +128,12 @@ label-unfocused-foreground = #999999
 label-visible = %index%
 label-visible-padding = 4
 label-visible-foreground = #dadada
-label-visible-background = #2a2a2a
+label-visible-background = #b82a2a2a
 label-visible-underline = #dadada
 
 label-urgent = %index%
 label-urgent-foreground = #1c1c1c
-label-urgent-background = #df5f5f
+label-urgent-background = #b8df5f5f
 label-urgent-padding = 4
 
 [module/volume]

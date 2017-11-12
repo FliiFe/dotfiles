@@ -17,7 +17,9 @@ URxvt.clipboard.autocopy: true
 URxvt.keysym.Control-Shift-V: perl:pasta:paste
 
 URxvt.depth: 32
-URxvt.background: [85]#0f0f0f
+URxvt.background: [70]#0f0f0f
+! Set default foreground to a light color
+URxvt.foreground: #ffffff
 
 URxvt.letterSpace: -1
 
