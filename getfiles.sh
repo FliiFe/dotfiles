@@ -35,9 +35,10 @@ cd dotfiles
 new_task 'vimrc'
 cp ~/.vimrc .
 done_task
+
 new_task 'vim config'
 mkdir -p .vim
-cp -r ~/.vim/{init.vim,plug.vim} .vim
+and cp -r ~/.vim/{init.vim,plug.vim} .vim
 done_task
 
 ## Tmux
@@ -48,43 +49,43 @@ done_task
 ## i3
 new_task 'i3 config file'
 mkdir -p .config/i3
-cp ~/.config/i3/config .config/i3/config
+and cp ~/.config/i3/config .config/i3/config
 done_task
 
 ## i3lock
 new_task 'lock script'
 mkdir bin
-cp ~/bin/lock bin/lock
+and cp ~/bin/lock bin/lock
 done_task
 
 ## polybar
 new_task 'polybar config file'
 mkdir -p .config/polybar
-cp ~/.config/polybar/{config,weather} .config/polybar/
-cp ~/bin/reload-polybar bin/
+and cp ~/.config/polybar/{config,weather} .config/polybar/
+and cp ~/bin/reload-polybar bin/
 done_task
 
 ## fish
 new_task 'fish config'
 mkdir -p .config/fish
-cp -r ~/.config/fish/{config.fish,functions} .config/fish/
+and cp -r ~/.config/fish/{config.fish,functions} .config/fish/
 done_task
 
 ## urxvt & rofi
 new_task 'rofi and urxvt config (Xresources)'
-cp ~/.Xresources .
+and cp ~/.Xresources .
 done_task
 
 ## xsession
 new_task 'xprofile'
 cp ~/.xprofile .
-ln -s ~/.xprofile .xinitrc
+and ln -s ~/.xprofile .xinitrc
 done_task
 
 ## fehbg and background
 new_task '~/.fehbg and background image'
 cp ~/.fehbg .
-cp -L ~/.bg .
+and cp -L ~/.bg .
 done_task
 
 ## Git config
