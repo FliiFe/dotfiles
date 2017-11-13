@@ -1,5 +1,6 @@
+set primary (cat ~/.primary)
 function fish_prompt
-    set_color green
+    set_color $primary
     __custom_prompt_whoami
     set_color normal
     __custom_prompt_pwd
@@ -42,7 +43,7 @@ end
 
 ## Git related things
 function __custom_prompt_git --description "git part of the prompt"
-    set_color green
+    set_color $primary
     __custom_prompt_git_branch
     set_color normal
     __custom_prompt_separator

@@ -102,3 +102,8 @@ done_task
 new_task 'dunst config'
 cp -r ~/.config/dunst .config/dunst
 done_task
+
+## Primary color
+new_task 'primary color'
+cp -r ~/.primary .primary
+done_task
