@@ -1,4 +1,5 @@
 set primary (cat ~/.primary)
+
 function fish_prompt
     set_color $primary
     __custom_prompt_whoami

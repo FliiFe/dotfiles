@@ -18,7 +18,7 @@ tar czf /tmp/dotfiles-(date +'%y-%m-%d-%H:%M:%S').tar.gz * .*
 
 # Ask for confirmation
 git rev-parse --git-dir 2>/dev/null >/dev/null; and set isgit '\e[32m is'; or set isgit '\e[31m is not'
-read -P (printf 'Current directory is \e[32m'(pwd)'\e[0m;, and'$isgit' a git repository\e[0m. Delete current dotfiles ? (delete/abort) ') answer
+read -P (printf 'Current directory is \e[32m'(pwd)'\e[0m, and'$isgit' a git repository\e[0m. Delete current dotfiles ? (delete/abort) ') answer
 if test "$answer" = "delete"
     new_task 'Remove current dotfiles'
     rm -rf dotfiles
@@ -106,4 +106,14 @@ done_task
 ## Primary color
 new_task 'primary color'
 cp -r ~/.primary .primary
+done_task
+
+## npmrc
+new_task 'npmrc'
+cp ~/.npmrc .npmrc
+done_task
+
+## eslintrc
+new_task 'eslint'
+cp ~/.eslintrc.json .
 done_task
