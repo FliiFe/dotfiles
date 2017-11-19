@@ -117,3 +117,8 @@ done_task
 new_task 'eslint'
 cp ~/.eslintrc.json .
 done_task
+
+## remote script
+new_task 'remote.sh script'
+cp ~/bin/remote.sh bin/
+done_task
