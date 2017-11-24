@@ -67,7 +67,9 @@ set completeopt=longest,menuone ",preview
 " Necessary for languageclient
 set hidden
 " always show sign columns
-set signcolumn=yes
+if has('signcolumn')
+    set signcolumn=yes
+end
 " Limit completion popup height
 set pumheight=8
 
