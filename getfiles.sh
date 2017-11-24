@@ -122,3 +122,8 @@ done_task
 new_task 'remote.sh script'
 cp ~/bin/remote.sh bin/
 done_task
+
+## change bg script
+new_task 'change-bg script'
+cp ~/bin/change-bg bin/
+done_task
