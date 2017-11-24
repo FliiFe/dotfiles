@@ -1,24 +1,30 @@
 #!/usr/bin/env fish
 
-i3lock -k -B=4 \
+i3lock -k \
+    --image=$HOME/.bg.lock.png -t \
     --textcolor=eeeeeeee \
     --timecolor=eeeeeeee \
     --datecolor=eeeeeeee \
     --indicator \
-    --timefont="Roboto Medium" \
+    --timefont="Roboto Light" \
     --datefont="Roboto" \
-    --datesize=14 \
-    --insidecolor=55555580 \
+    --timesize=75 \
+    --timepos=15:15 \
+    -S=0 \
+    --datesize=1 \
+    --datestr="" \
+    --insidecolor=55555500 \
     --ringcolor=ffffff00 \
     --line-uses-inside \
-    --radius 100 \
+    --radius 350 \
     --separator=00000000 \
-    --keyhlcolor=5fdf5fff \
-    --bshlcolor=df5f5fff \
+    --keyhlcolor=ffffff10 \
+    --bshlcolor=ffffff20 \
     --ringwrongcolor=ffffff00 \
     --ringvercolor=ffffff00 \
-    --insidevercolor=55555580 \
-    --veriftext="..." \
+    --insidevercolor=55555500 \
+    --veriftext=… \
     --wrongtext="Error !" \
-    --insidewrongcolor=df5f5fff \
-    --ringwrongcolor=ffffff00
+    --textsize=100 \
+    --insidewrongcolor=f2777a00 \
+    --ringwrongcolor=ffffff00 \

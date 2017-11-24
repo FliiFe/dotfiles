@@ -1,8 +1,12 @@
 set -gx VISUAL "nvim"
 set -gx EDITOR "nvim"
-set -gx PATH $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.1.0/bin
+set -gx pathdirs $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.1.0/bin
 set -gx GPG_TTY (tty)
 set primary (cat ~/.primary)
+
+for dir in $pathdirs;
+    test -d $dir; and set -gx PATH $PATH $dir
+end
 
 # Base16 Colourscheme
 if status --is-interactive
@@ -11,7 +15,7 @@ if status --is-interactive
     [ (tty) = "/dev/tty1" ]; and [ "$DISPLAY" = "" ]; and exec startx
 
     if [ "$TMUX" = "" ]
-        exec tmux -2
+        command -v tmux; and exec tmux -2
     end
 
     # function hybrid_bindings --description "Vi-style bindings"
