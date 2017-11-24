@@ -14,6 +14,22 @@ function end_with_files
     for i in $argv
         cp $i ~/$i
     end
+    command -v nvim; alias vim=nvim
+    echo $argv | grep vim;
+        and echo 'Installing vim-plug';
+        and curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        and echo 'Installing vim plugins'
+        and vim +PlugInstall +UpdateRemotePlugins +qa
+    if echo $argv | grep fish;
+        echo 'Installing omf'
+        curl -L https://get.oh-my.fish | fish
+        for module in cd fzf gi gityaw jump vcs wttr
+            omf install $module
+        end
+        echo 'Installing base16-shell'
+        git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+    end
     exit 0
 end
 
