@@ -48,6 +48,6 @@ if status --is-interactive
     abbr --add eav "sudo emerge -av"
     abbr --add es "sudo emerge --sync"
     abbr --add eup "sudo emerge -DNuva @world"
-    abbr --add remote "env TMUX  urxvtc -e bash ~/bin/remote.sh"
+    abbr --add remote "env TMUX= urxvtc -e bash ~/bin/remote.sh"
 end
 
