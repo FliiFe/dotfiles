@@ -36,18 +36,18 @@ if status --is-interactive
     set -gx fish_color_autosuggestion 808080
 
     set -gx GOPATH ~/gowork
-    alias j="jump"
-    alias l="ls -la"
-    alias lah="ls -lah"
-    alias gst="git status"
-    alias gph="git push"
-    alias gpl="git pull"
-    alias ga="git add"
-    alias gc="git commit"
-    alias gd="git diff"
-    alias eav="sudo emerge -av"
-    alias es="sudo emerge --sync"
-    alias eup="sudo emerge -DNuva @world"
-    alias remote 'env TMUX= urxvtc -e bash ~/bin/remote.sh'
+    abbr --add j "jump"
+    abbr --add l "ls -la"
+    abbr --add lah "ls -lah"
+    abbr --add gst "git status"
+    abbr --add gph "git push"
+    abbr --add gpl "git pull"
+    abbr --add ga "git add"
+    abbr --add gc "git commit"
+    abbr --add gd "git diff"
+    abbr --add eav "sudo emerge -av"
+    abbr --add es "sudo emerge --sync"
+    abbr --add eup "sudo emerge -DNuva @world"
+    abbr --add remote "env TMUX  urxvtc -e bash ~/bin/remote.sh"
 end
 
