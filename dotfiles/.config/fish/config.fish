@@ -46,6 +46,7 @@ if status --is-interactive
     abbr --add gc "git commit"
     abbr --add gd "git diff"
     abbr --add eav "sudo emerge -av"
+    abbr --add ecav "sudo emerge -cav"
     abbr --add es "sudo emerge --sync"
     abbr --add eup "sudo emerge -DNuva @world"
     abbr --add remote "env TMUX= urxvtc -e bash ~/bin/remote.sh"

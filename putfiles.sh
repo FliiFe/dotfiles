@@ -14,7 +14,7 @@ function end_with_files
     for i in $argv
         cp $i ~/$i
     end
-    command -v nvim; alias vim=nvim
+    command -v nvim; and alias vim=nvim
     echo $argv | grep vim;
         and echo 'Installing vim-plug';
         and curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -35,16 +35,27 @@ end
 
 function readarrow
     # Use bash due to bug in fish wich prevents multiple reads in a row
-    bash -c 'read -rsN1 r; echo -n $r' | read c1
+    bash -c 'read -rsN1 r; echo -n "$r"' | read c1
     # If the pressed key is not an arrow key, do as if it was left arrow to toggle file state
-    test "$c1" = ""; and echo -n 'C'; and return
+    if test ! "$c1" = (echo -ne "\e");
+        switch $c1
+            case j
+                echo -n "B"
+            case k
+                echo -n "A"
+            case h l '' ' '
+                echo -n "C"
+            case q
+                clear
+                exit 0
+            case '*'
+                echo -n 'undefined'
+        end
+        return
+    end
 
     bash -c 'read -rsN1 r; echo -n $r' | read c2
-    test "$c2" = ""; and echo -n 'C'; and return
-
     bash -c 'read -rsN1 r; echo -n $r' | read c3
-    test "$c3" = ""; and echo -n 'C'; and return
-
     echo -n "$c1$c2$c3"
 end
 

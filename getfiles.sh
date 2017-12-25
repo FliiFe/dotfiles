@@ -127,3 +127,9 @@ done_task
 new_task 'change-bg script'
 cp ~/bin/change-bg bin/
 done_task
+
+## gpg conf
+new_task 'gpg conf'
+mkdir .gnupg
+and cp ~/.gnupg/gpg.conf .gnupg
+done_task
