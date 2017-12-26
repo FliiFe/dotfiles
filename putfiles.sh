@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+set patches (realpath ./patches)
+
 cd dotfiles
 
 echo -ne '\e[32mPress \e[4mright arrow\e[0;32m to toggle file\e[0m'
@@ -12,19 +14,23 @@ set done 1
 function end_with_files
     echo -e '\e[0;32mCopying files…\e[0m'
     for i in $argv
+        mkdir -p (dirname ~/$i)
         cp $i ~/$i
     end
-    command -v nvim; and alias vim=nvim
-    echo $argv | grep vim;
+    command -v nvim >/dev/null; and alias vim=nvim
+    echo $argv | grep vim >/dev/null;
         and echo 'Installing vim-plug';
         and curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim ^/dev/null
         and echo 'Installing vim plugins'
         and vim +PlugInstall +UpdateRemotePlugins +qa
-        and patch -d $HOME/.vim/plugged/vim-airline-themes/ <patches/airline-theme.patch
-    if echo $argv | grep fish;
+        and echo "Applying airline patch"
+        and cd $HOME/.vim/plugged/vim-airline-themes/
+        and git apply <$patches/airline-theme.patch
+        and cd -
+    if echo $argv | grep fish >/dev/null;
         echo 'Installing omf'
-        curl -L https://get.oh-my.fish | fish
+        curl -L https://get.oh-my.fish ^/dev/null | fish
         for module in cd fzf gi gityaw jump vcs wttr
             omf install $module
         end
