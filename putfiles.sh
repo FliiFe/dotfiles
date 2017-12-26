@@ -21,6 +21,7 @@ function end_with_files
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         and echo 'Installing vim plugins'
         and vim +PlugInstall +UpdateRemotePlugins +qa
+        and patch -d $HOME/.vim/plugged/vim-airline-themes/ <patches/airline-theme.patch
     if echo $argv | grep fish;
         echo 'Installing omf'
         curl -L https://get.oh-my.fish | fish
@@ -38,7 +39,7 @@ function readarrow
     bash -c 'read -rsN1 r; echo -n "$r"' | read c1
     # If the pressed key is not an arrow key, do as if it was left arrow to toggle file state
     if test ! "$c1" = (echo -ne "\e");
-        switch $c1
+        switch "$c1"
             case j
                 echo -n "B"
             case k
