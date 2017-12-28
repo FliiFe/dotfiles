@@ -6,8 +6,8 @@ cd dotfiles
 
 echo -ne '\e[32mPress \e[4mright arrow\e[0;32m to toggle file\e[0m'
 
-set files (find -type f | cut -d/ -f2- | sort)
-set activefiles $files
+set files (find -type f -or -type l | cut -d/ -f2- | sort)
+set activefiles
 
 set done 1
 
@@ -15,7 +15,7 @@ function end_with_files
     echo -e '\e[0;32mCopying files…\e[0m'
     for i in $argv
         mkdir -p (dirname ~/$i)
-        cp $i ~/$i
+        cp -d $i ~/$i
     end
     command -v nvim >/dev/null; and alias vim=nvim
     echo $argv | grep vim >/dev/null;
@@ -31,6 +31,7 @@ function end_with_files
     if echo $argv | grep fish >/dev/null;
         echo 'Installing omf'
         curl -L https://get.oh-my.fish ^/dev/null | fish
+        # TODO: Handle case where omf was not previously installed and is hence not available before the next execution of fish
         for module in cd fzf gi gityaw jump vcs wttr
             omf install $module
         end
@@ -123,7 +124,7 @@ function movedown
 end
 
 for i in $files
-    echo -ne '\n[✓]' "~/$i"
+    echo -ne '\n[ ]' "~/$i"
 end
 
 echo -ne '\n\e[30;107mDone !\e[0m\r'
