@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/env fish
 
 curl ^/dev/null http://www.prevision-meteo.ch/services/json/lys-lez-lannoy \
     | jq '(.current_condition.tmp|tostring) + "°C, " + .current_condition.condition' -M \
