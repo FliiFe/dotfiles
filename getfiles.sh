@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/env fish
 # A script that gets my dotfiles and puts them in this repo
 
 set lasttask ''
