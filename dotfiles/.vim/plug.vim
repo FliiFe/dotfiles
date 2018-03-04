@@ -1,6 +1,7 @@
 Plug 'chriskempson/base16-vim'
 " Git gutter
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 " Smooth scrolling
 Plug 'yuttie/comfortable-motion.vim'
 " Completion manager
@@ -39,8 +40,6 @@ Plug 'heavenshell/vim-jsdoc'
 " Add snippets.
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Latex live rendering
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " Emmet snippets
 Plug 'mattn/emmet-vim'
 " Airline
