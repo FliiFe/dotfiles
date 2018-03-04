@@ -45,6 +45,8 @@ let g:neomake_vue_eslint_maker = {
         \ '%W%f: line %l\, col %c\, Warning - %m,%-G,%-G%*\d problems%#'
 \ }
 
+let g:tex_fold_enabled = 1
+
 " Do not run local vimrc onside sandbox
 let g:localvimrc_sandbox=0
 " Ask for local vimrc execution
@@ -53,7 +55,7 @@ let g:localvimrc_ask=1
 let g:localvimrc_persistent=1
 
 " Start deoplete on startup
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 " Set deoplete sources
 set completeopt=longest,menuone ",preview
@@ -204,7 +206,6 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 set relativenumber
 " Do not show the current mode as it is already being shown by Airline
 set noshowmode
-" Disable doublequotes hiding in json - to fix, doesn't work
 set conceallevel=0
 " Set dark theme, not light
 set background=dark

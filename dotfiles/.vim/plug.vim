@@ -4,13 +4,13 @@ Plug 'airblade/vim-gitgutter'
 " Smooth scrolling
 Plug 'yuttie/comfortable-motion.vim'
 " Completion manager
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'roxma/nvim-completion-manager'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'roxma/nvim-completion-manager'
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 " Tern support
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " Tern completion
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " fzf fuzzy finder
 Plug 'junegunn/fzf.vim'
 " Surround with cs'"
@@ -39,6 +39,8 @@ Plug 'heavenshell/vim-jsdoc'
 " Add snippets.
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+" Latex live rendering
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 " Emmet snippets
 Plug 'mattn/emmet-vim'
 " Airline

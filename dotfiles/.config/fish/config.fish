@@ -8,8 +8,8 @@ for dir in $pathdirs;
     test -d $dir; and set -gx PATH $PATH $dir
 end
 
-# Base16 Colourscheme
 if status --is-interactive
+    # Base16 Colourscheme
     cat $HOME/.config/base16-shell/scripts/base16-eighties.sh | sed \
         's/^\(.*\)background/printf "" #\1background/g' | sh
     [ (tty) = "/dev/tty1" ]; and [ "$DISPLAY" = "" ]; and exec startx
