@@ -133,3 +133,8 @@ new_task 'gpg conf'
 mkdir .gnupg
 and cp ~/.gnupg/gpg.conf .gnupg
 done_task
+
+## LatexMK config
+new_task 'latexmkrc'
+cp ~/.latexmkrc ./
+done_task
