@@ -31,15 +31,16 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show drun
+# bindsym $mod+d exec rofi -show drun
 # Launch rofi as a window picker
-bindsym $mod+w exec rofi -show window
+# bindsym $mod+w exec rofi -show window
+exec cerebro
 
 # change focus
 bindsym $mod+h focus left
@@ -237,7 +238,7 @@ focus_on_window_activation urgent
 # Start chrome on login
 exec google-chrome-stable
 # Start discord on login
-exec discord-canary
+exec discord
 # Start Spotify
 # exec spotify
 
