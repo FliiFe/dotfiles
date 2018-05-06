@@ -151,3 +151,8 @@ new_task 'cerebro config'
 mkdir -p .config/Cerebro
 and cp ~/.config/Cerebro/{config.json,theme.css} .config/Cerebro/
 done_task
+
+## Compton config
+new_task 'compton configuration file'
+cp ~/.compton.conf ./
+done_task
