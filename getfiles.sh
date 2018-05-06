@@ -138,3 +138,15 @@ done_task
 new_task 'latexmkrc'
 cp ~/.latexmkrc ./
 done_task
+
+## alacritty config
+new_task 'alacritty config'
+mkdir -p .config/alacritty
+and cp ~/.config/alacritty/alacritty.yml .config/alacritty/alacritty.yml 
+done_task
+
+## Cerebro config
+new_task 'cerebro config'
+mkdir -p .config/Cerebro
+and cp ~/.config/Cerebro/{config.json,theme.css} .config/Cerebro/
+done_task

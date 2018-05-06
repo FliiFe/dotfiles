@@ -1,0 +1,32 @@
+@import url("https://cdn.rawgit.com/AndrewBarba/2c0f6612ceef30f5f55d/raw/e9e2e53217b49a220fccf57a641f1a8388f0743b/sanfrancisco-font.css");
+
+:root {
+  /* Main fonts and colors */
+  --main-background-color: rgba(255, 255, 255, 1);
+  --main-font: 'SF Text';
+  --main-font-color: #000000;
+
+  /* border styles */
+  --main-border: 5px solid #eee;
+
+  /* Secondary fonts and colors */
+  --secondary-font-color: #999;
+
+  /* results list */
+  --result-background: transparent;
+  --result-title-color: var(--main-font-color);
+  --result-subtitle-color: #cccccc;
+
+  /* selected result */
+  --selected-result-title-color: white;
+  --selected-result-subtitle-color: var(--result-subtitle-color);
+  --selected-result-background: rgba(18, 110, 219, 1);
+
+  /* inputs */
+  --preview-input-background: white;
+  --preview-input-color: var(--main-font-color);
+  --preview-input-border: 1px solid #ccc;
+
+  /* filter for previews */
+  --preview-filter: none;
+}
