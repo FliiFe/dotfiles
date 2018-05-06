@@ -37,8 +37,9 @@ cp ~/.vimrc .
 done_task
 
 new_task 'vim config'
-mkdir -p .vim
+mkdir -p .vim .config
 and cp -r ~/.vim/{init.vim,plug.vim} .vim
+and ln -s ../.vim .config/nvim
 done_task
 
 ## Tmux
