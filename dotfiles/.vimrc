@@ -79,11 +79,6 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'haskell': ['hie', '--lsp'],
     \ 'vue': ['vls'],
-    \ 'python': ['pyls'],
-    \ 'css': ['css-languageserver'],
-    \ 'html': ['html-languageserver'],
-    \ 'json': ['json-languageserver'],
-    \ 'yaml': ['~/.npm-global/lib/node_modules/yaml-language-server/out/server/src/server.js'],
     \ }
 
 let g:LanguageClient_diagnosticsDisplay = {}
@@ -101,15 +96,15 @@ let g:neomake_message_sign = {
     \   'texthl': 'NeomakeMessageSign',
     \ }
 
-augroup JavascriptKeybingind
+augroup LanguageClientAutogroup
     au!
+    autocmd FileType javascript,haskell,vue nnoremap <silent> <C-]> :TernDef<CR>
+    autocmd FileType javascript,haskell,vue nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+    autocmd FileType javascript,haskell,vue nnoremap <silent> <C-]> :call LanguageClient_textDocument_definition()<CR>
+    autocmd FileType javascript,haskell,vue nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
     " autocmd FileType javascript nnoremap <silent> <F2> :TernRename<CR>
     " autocmd FileType javascript nnoremap <silent> K :TernDoc<CR>
-    autocmd FileType javascript nnoremap <silent> <C-]> :TernDef<CR>
 augroup END
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> <C-]> :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart=1
@@ -144,8 +139,6 @@ let g:netrw_silent=1
 nnoremap <silent> <Esc><Esc> :w<CR>
 " Timeout for escape characters. Reduces the delay before quitting insert mode
 set ttimeoutlen=10
-"Show help in a vertical tab instead of an horizontal one
-cnoremap help vert bo help
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -242,3 +235,54 @@ noremap <F10> :ToggleColorColumn<CR>
 set inccommand=split
 
 let g:gutentags_cache_dir = '/tmp/tags'
+
+fun LatexSkeleton()
+    put ='\documentclass{article}'
+    put =''
+    put ='\usepackage[utf8]{inputenc}'
+    put ='\usepackage[T1]{fontenc}'
+    put ='\usepackage[french]{babel}'
+    put ='\usepackage[a4paper, margin=2cm]{geometry}'
+    put ='\usepackage{amsmath}'
+    put ='\usepackage{amsmath}'
+    put ='\usepackage{amsfonts}'
+    put ='\usepackage{amssymb}'
+    put ='\usepackage{amsthm}'
+    put ='\usepackage{stmaryrd}'
+    put ='\usepackage{color}'
+    put ='\usepackage[hidelinks]{hyperref}'
+    put =''
+    put ='\title{}'
+    put ='\author{}'
+    put ='% \date{}'
+    put =''
+    put ='\begin{document}'
+    put =''
+    put ='\maketitle'
+    put ='\tableofcontents'
+    put =''
+    put ='\end{document}'
+    normal! ggdd
+    /title/
+    set nohlsearch
+    exec 'normal! f{'
+endfun
+
+augroup LatexFiletypeGroup
+    au!
+    autocmd BufEnter *.tex silent set ft=tex
+    autocmd BufNewFile *.tex silent call LatexSkeleton()
+    " autocmd FileType tex silent set updatetime=3000
+    autocmd CursorHold *.tex silent :up
+    " Use gk and gj to move around the file instead of j and k
+    autocmd FileType tex silent noremap k gk
+    autocmd FileType tex silent noremap j gj
+augroup END
+
+augroup ConfigReload
+    au!
+    autocmd BufWritePost .compton.conf silent :!killall -USR1 compton
+    autocmd BufWritePost ~/.config/i3/config silent :!i3-msg reload
+    autocmd BufWritePost .tmux.conf silent :!tmux source-file ~/.tmux.conf
+    autocmd BufWritePost ~/.config/polybar/config :!~/bin/reload-polybar
+augroup END
