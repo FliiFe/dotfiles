@@ -183,7 +183,7 @@ noremap <S-F3> :Autoformat<CR>
 
 " Enable mouse
 set mouse=a
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
@@ -200,6 +200,8 @@ set relativenumber
 " Do not show the current mode as it is already being shown by Airline
 set noshowmode
 set conceallevel=0
+" Enable truecolor
+set termguicolors
 " Set dark theme, not light
 set background=dark
 " Open quickfix at the bottom
