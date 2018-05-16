@@ -156,3 +156,9 @@ done_task
 new_task 'compton configuration file'
 cp ~/.compton.conf ./
 done_task
+
+## imgur-screenshot config
+new_task 'imgur-screenshot config'
+mkdir -p .config/imgur-screenshot
+and cp ~/.config/imgur-screenshot/settings.conf .config/imgur-screenshot
+done_task
