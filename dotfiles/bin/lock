@@ -1,15 +1,16 @@
 #!/usr/bin/env fish
 
-i3lock -k \
+# Suspend dunst
+pkill -u "$USER" -USR1 dunst
+
+i3lock -n -k \
     --image=$HOME/.bg.lock.png -t \
-    --textcolor=eeeeeeee \
     --timecolor=eeeeeeee \
+    --time-font='Roboto Thin' \
     --datecolor=eeeeeeee \
     --indicator \
-    --timefont="Roboto Light" \
-    --datefont="Roboto" \
     --timesize=75 \
-    --timepos=15:15 \
+    --timepos=160:85 \
     -S=0 \
     --datesize=1 \
     --datestr="" \
@@ -25,6 +26,9 @@ i3lock -k \
     --insidevercolor=55555500 \
     --veriftext=… \
     --wrongtext="Error !" \
-    --textsize=100 \
     --insidewrongcolor=f2777a00 \
     --ringwrongcolor=ffffff00 \
+    --verifcolor=ffffff00 \
+
+# Resume dunst
+pkill -u "$USER" -USR2 dunst
