@@ -62,7 +62,7 @@ done_task
 ## polybar
 new_task 'polybar config file'
 mkdir -p .config/polybar
-and cp ~/.config/polybar/{config,weather} .config/polybar/
+and cp ~/.config/polybar/* .config/polybar/
 and cp ~/bin/reload-polybar bin/
 done_task
 
@@ -169,4 +169,8 @@ done_task
 
 new_task 'laptop-related scripts'
 cp ~/bin/battery* ~/bin/lidmanager ~/bin/setup-touchpad bin/
+done_task
+
+new_task 'poweroff dialog'
+cp ~/bin/poweroff bin/
 done_task
