@@ -1,0 +1,6 @@
+#!/bin/fish
+
+while true
+    acpi_listen -c 1 | grep 'lid' | grep 'close'
+    and lock
+end

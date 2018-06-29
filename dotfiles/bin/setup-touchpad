@@ -1,0 +1,7 @@
+#!/bin/fish
+
+set device_name 'ELAN1300:00 04F3:3057 Touchpad'
+
+xinput set-prop $device_name (xinput list-props $device_name | grep -i 'tapping' | head -n 1 | grep -Eo '[0-9][0-9]+') 1
+xinput set-prop $device_name (xinput list-props $device_name | grep -i 'disable' | head -n 1 | grep -Eo '[0-9][0-9]+') 0
+
