@@ -48,7 +48,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Neomake, syntax checker
 Plug 'neomake/neomake'
 " Ctags creation
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 " Tagbar
 Plug 'majutsushi/tagbar'
 " Gentoo files syntax
