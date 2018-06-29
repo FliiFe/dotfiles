@@ -4,7 +4,7 @@
   "country": "FR",
   "theme": "/home/fliife/.config/Cerebro/theme.css",
   "hotkey": "Command+d",
-  "showInTray": true,
+  "showInTray": false,
   "firstStart": false,
   "developerMode": true,
   "cleanOnHide": true,
@@ -12,14 +12,22 @@
   "lastShownDonateDialog": 1521315888713,
   "plugins": {},
   "isMigratedPlugins": true,
-  "trackingEnabled": true,
-  "crashreportingEnabled": true,
+  "trackingEnabled": false,
+  "crashreportingEnabled": false,
   "openAtLogin": false,
   "hideOnBlur": false,
   "positions": {
+    "0": [
+      635,
+      292
+    ],
     "1657624436441344": [
       903,
       346
+    ],
+    "2785062953156608": [
+      635,
+      305
     ]
   }
 }
