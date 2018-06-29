@@ -165,6 +165,7 @@ done_task
 
 new_task 'custom icons'
 cp -r ~/.icons .icons
+and cp -r ~/.config/battery_icons .config/battery_icons
 done_task
 
 new_task 'laptop-related scripts'
