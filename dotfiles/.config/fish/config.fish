@@ -1,6 +1,6 @@
 set -gx VISUAL "nvim"
 set -gx EDITOR "nvim"
-set -gx pathdirs $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.1.0/bin
+set -gx pathdirs $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.1.0/bin $HOME/.cargo/bin
 set -gx GPG_TTY (tty)
 set primary (cat ~/.primary)
 
@@ -9,10 +9,11 @@ for dir in $pathdirs;
 end
 
 if status --is-interactive
+    [ (tty) = "/dev/tty6" ]; and [ "$DISPLAY" = "" ]; and exec startx
+
     # Base16 Colourscheme
     cat $HOME/.config/base16-shell/scripts/base16-eighties.sh | sed \
         's/^\(.*\)background/printf "" #\1background/g' | sh
-    [ (tty) = "/dev/tty1" ]; and [ "$DISPLAY" = "" ]; and exec startx
 
     if [ "$TMUX" = "" ]
         command -v tmux; and exec tmux -2
@@ -49,6 +50,6 @@ if status --is-interactive
     abbr --add ecav "sudo emerge -cav"
     abbr --add es "sudo emerge --sync"
     abbr --add eup "sudo emerge -DNuva @world"
-    abbr --add remote "env TMUX= urxvtc -e bash ~/bin/remote.sh"
+    abbr --add remote "setsid env TMUX= alacritty -e bash ~/bin/remote.sh"
 end
 
