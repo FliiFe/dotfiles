@@ -1,18 +1,25 @@
 #!/bin/sh
-# setterm -blank 0 -powersave off -powerdown 0
-xset s off
-setxkbmap -option compose:ralt
+# Pause as compose key
+setxkbmap fr -option compose:paus
 # eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 redshift -l 50.674520:3.216898 &
-xrandr --output HDMI-A-0 --auto --output DisplayPort-0 --left-of HDMI-A-0 --output DVI-I-1 --pos 3840x312
 # Set the background
 sh ~/.fehbg
 # Start the composer
 compton &
 eval "$(ssh-agent)"
-numlockx on
-dunst
-synergys
+# numlockx on
+dunst &
+# restore previous brightnesses
+bin/brightness
+bin/kbdbrightness
+bin/setup-touchpad
+nm-applet &
+blueman-applet &
+lidmanager &
+batterylevelwatcher
+libinput-gestures-setup start
+# synergys
 exec ck-launch-session dbus-launch --exit-with-session i3
 # exec i3
