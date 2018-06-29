@@ -86,7 +86,7 @@ done_task
 ## fehbg and background
 new_task '~/.fehbg and background image'
 cp ~/.fehbg .
-and cp -L ~/.bg .
+and cp -L ~/.bg ~/.bg.lock.png .
 done_task
 
 ## Git config
@@ -161,4 +161,12 @@ done_task
 new_task 'imgur-screenshot config'
 mkdir -p .config/imgur-screenshot
 and cp ~/.config/imgur-screenshot/settings.conf .config/imgur-screenshot
+done_task
+
+new_task 'custom icons'
+cp -r ~/.icons .icons
+done_task
+
+new_task 'laptop-related scripts'
+cp ~/bin/battery* ~/bin/lidmanager ~/bin/setup-touchpad bin/
 done_task
