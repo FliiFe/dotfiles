@@ -1,0 +1,3 @@
+#!/bin/sh
+
+on_ac_power && echo  || echo
