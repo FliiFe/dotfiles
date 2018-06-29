@@ -66,8 +66,7 @@ Plug 'embear/vim-localvimrc'
 " Html highlighting
 Plug 'othree/html5.vim'
 " Haskell syntax file
-Plug 'vim-scripts/haskell.vim'
-Plug 'vim-scripts/Cabal.vim'
+Plug 'neovimhaskell/haskell-vim'
 
 " Discord Rich Presence
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}

@@ -79,6 +79,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['typescript-language-server', '--stdio'],
     \ 'haskell': ['hie', '--lsp'],
     \ 'vue': ['vls'],
+    \ 'c': ['ccls'],
     \ }
 
 let g:LanguageClient_diagnosticsDisplay = {}
