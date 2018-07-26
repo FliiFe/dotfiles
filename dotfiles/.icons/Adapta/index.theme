@@ -1,2 +1,18 @@
-[icon theme] 
+[Icon Theme] 
+Name=Adapta
 Inherits=hicolor
+Comment=Custom Icon Theme
+Directories=22x22/status,scalable/status,scalable/apps,
+
+[22x22/status]
+Size=22
+
+[scalable/status]
+Size=22
+Type=Scalable
+Threshold=100
+
+[scalable/apps]
+Size=22
+Type=Scalable
+Threshold=100
