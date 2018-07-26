@@ -175,3 +175,7 @@ done_task
 new_task 'poweroff dialog'
 cp ~/bin/poweroff bin/
 done_task
+
+new_task 'brightness-related scripts'
+cp ~/bin/*brightness* bin/
+done_task

@@ -1,0 +1,14 @@
+#!/usr/bin/env fish
+
+set a $argv[1]
+set -q KBD_BRIGHTNESS; or set -U KBD_BRIGHTNESS (cat /sys/devices/platform/asus-nb-wmi/leds/asus::kbd_backlight/brightness)
+set MAX_BRIGHTNESS (cat /sys/devices/platform/asus-nb-wmi/leds/asus::kbd_backlight/max_brightness)
+
+[ "$a" = "up" ]; and set -U KBD_BRIGHTNESS (math -- $KBD_BRIGHTNESS+1)
+[ "$a" = "down" ]; and set -U KBD_BRIGHTNESS (math -- $KBD_BRIGHTNESS-1)
+[ "$KBD_BRIGHTNESS" -gt $MAX_BRIGHTNESS ]; and set -U KBD_BRIGHTNESS $MAX_BRIGHTNESS
+[ "$KBD_BRIGHTNESS" -lt 0 ]; and set -U KBD_BRIGHTNESS 0
+
+echo "$KBD_BRIGHTNESS" | sudo tee ~/bin/kbdbrightness-node
+
+# vim: set ft=fish:

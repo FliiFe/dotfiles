@@ -1,0 +1,28 @@
+#!/bin/fish
+
+test "$BRIGHTNESS_IS_CHANGING" = "1"; and exit
+
+set a $argv[1]
+set -q SCREEN_BRIGHTNESS; or set -U SCREEN_BRIGHTNESS (cat /sys/class/backlight/intel_backlight/brightness)
+set OLD_BRIGHTNESS $SCREEN_BRIGHTNESS
+set MAX_BRIGHTNESS (cat /sys/class/backlight/intel_backlight/max_brightness)
+set DIFF 500
+
+[ "$SCREEN_BRIGHTNESS" -le 500 ]; and set DIFF 100;
+
+set STEP (math $DIFF/25)
+
+[ "$a" = "up" ]; and set -U SCREEN_BRIGHTNESS (math -- $SCREEN_BRIGHTNESS+$DIFF)
+[ "$a" = "down" ]; and set -U SCREEN_BRIGHTNESS (math -- $SCREEN_BRIGHTNESS-$DIFF)
+[ "$SCREEN_BRIGHTNESS" -gt $MAX_BRIGHTNESS ]; and set -U SCREEN_BRIGHTNESS $MAX_BRIGHTNESS
+[ "$SCREEN_BRIGHTNESS" -lt 0 ]; and set -U SCREEN_BRIGHTNESS 0
+
+set -U BRIGHTNESS_IS_CHANGING 1
+for i in (test "$a" = "down"; and seq $OLD_BRIGHTNESS -$STEP $SCREEN_BRIGHTNESS; or seq $OLD_BRIGHTNESS $STEP $SCREEN_BRIGHTNESS)
+    echo "$i" | sudo tee /sys/class/backlight/intel_backlight/brightness
+end
+set -U BRIGHTNESS_IS_CHANGING 0
+
+echo "$SCREEN_BRIGHTNESS" | sudo tee /sys/class/backlight/intel_backlight/brightness
+
+# vim: set ft=fish:
