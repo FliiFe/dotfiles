@@ -29,7 +29,7 @@ font-4 = NotoEmojiColor:pixelsize=10;10
 
 modules-left = i3wm title
 modules-center = weather
-modules-right = battery charging volume date clock
+modules-right = battery charging date clock
 
 ; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0

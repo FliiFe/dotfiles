@@ -18,7 +18,8 @@ bin/setup-touchpad
 nm-applet &
 blueman-applet &
 lidmanager &
-batterylevelwatcher
+batterylevelwatcher &
+pa-applet --disable-notifications &
 libinput-gestures-setup start
 # synergys
 exec ck-launch-session dbus-launch --exit-with-session i3
