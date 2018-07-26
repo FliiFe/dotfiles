@@ -5,7 +5,7 @@ set -gx GPG_TTY (tty)
 set primary (cat ~/.primary)
 
 for dir in $pathdirs;
-    test -d $dir; and set -gx PATH $PATH $dir
+    test -d $dir; and not contains $dir $PATH; and set -gx PATH $dir $PATH
 end
 
 if status --is-interactive
