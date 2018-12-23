@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # Suspend dunst
-pkill -u "$USER" -USR1 dunst
+# pkill -u "$USER" -USR1 dunst
 
 i3lock -n -k \
     --image=$HOME/.bg.lock.png -t \
@@ -31,4 +31,5 @@ i3lock -n -k \
     --verifcolor=ffffff00 \
 
 # Resume dunst
-pkill -u "$USER" -USR2 dunst
+# pkill -u "$USER" -USR2 dunst
+
