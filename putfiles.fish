@@ -6,7 +6,7 @@ cd dotfiles
 
 echo -ne '\e[32mPress \e[4mright arrow\e[0;32m to toggle file\e[0m'
 
-set files (find -type f -or -type l | cut -d/ -f2- | sort)
+set files (find -maxdepth 2 -type f -or -type l | cut -d/ -f2- | sort)
 set activefiles
 
 set done 1
