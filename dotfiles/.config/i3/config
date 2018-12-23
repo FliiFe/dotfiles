@@ -40,6 +40,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec rofi -show drun
 # Launch rofi as a window picker
 # bindsym $mod+w exec rofi -show window
+bindsym $mod+g exec nautilus
 exec cerebro
 
 # change focus
@@ -110,8 +111,9 @@ bindsym XF86MonBrightnessDown exec ~/bin/brightness down
 bindsym XF86KbdBrightnessUp exec ~/bin/kbdbrightness up
 bindsym XF86KbdBrightnessDown exec ~/bin/kbdbrightness down
 
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+# Let pa-applet manage this
+# bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
+# bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
