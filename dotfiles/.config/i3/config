@@ -225,16 +225,16 @@ exec polybar first
 # exec polybar second
 # exec polybar third
 
-# # Put chrome on workspace 1
+# Put chrome on workspace 1
 # assign [class="(?i)Chrome"] 1
 # # Put IntelliJ Idea in workspace 4
 # assign [class="(?i)idea"] 4
 # # Put Android Studio in workspace 4
 # assign [class="(?i)jetbrains"] 4
-# # Put discord on workspace 2
-# assign [class="(?i)Discord"] 2
-# # Put spotify on workspace 6
-# assign [class="(?i)Spotify"] 6
+# Put discord on workspace 2
+assign [class="(?i)Discord"] 2
+# # Put spotify on workspace 3
+# assign [class="(?i)Spotify"] 3
 
 # Disable title bars
 for_window [class="^.*"] border pixel 0
@@ -271,3 +271,15 @@ exec ~/bin/lock
 
 for_window [class="gtkdialog"] floating enable
 for_window [title="*Figure*"] floating enable
+
+# restore previous brightnesses
+exec ~/bin/brightness
+exec ~/bin/kbdbrightness
+exec ~/bin/setup-touchpad
+exec ~/bin/batterylevelwatcher
+exec ~/bin/lidmanager
+
+exec nm-applet
+exec blueman-applet
+exec pa-applet --disable-notifications
+exec libinput-gestures-setup start

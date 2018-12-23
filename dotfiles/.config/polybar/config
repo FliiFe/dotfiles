@@ -38,7 +38,8 @@ wm-name = i3
 
 tray-position = right
 tray-maxsize = 16
-tray-background = #2D403B
+; tray-background = #2D403B
+tray-background = #0B383C
 tray-padding = 10
 tray-scale = 1.0
 
