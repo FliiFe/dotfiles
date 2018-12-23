@@ -1,9 +1,7 @@
-@import url("https://cdn.rawgit.com/AndrewBarba/2c0f6612ceef30f5f55d/raw/e9e2e53217b49a220fccf57a641f1a8388f0743b/sanfrancisco-font.css");
-
 :root {
   /* Main fonts and colors */
   --main-background-color: rgba(255, 255, 255, 1);
-  --main-font: 'SF Text';
+  --main-font: 'Google Sans';
   --main-font-color: #000000;
 
   /* border styles */
