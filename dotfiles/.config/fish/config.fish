@@ -1,6 +1,6 @@
 set -gx VISUAL "nvim"
 set -gx EDITOR "nvim"
-set -gx pathdirs $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.1.0/bin $HOME/.cargo/bin
+set -gx pathdirs $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.3.0/bin $HOME/.cargo/bin
 set -gx GPG_TTY (tty)
 set primary (cat ~/.primary)
 
@@ -48,8 +48,8 @@ if status --is-interactive
     abbr --add gd "git diff"
     abbr --add eav "sudo emerge -av"
     abbr --add ecav "sudo emerge -cav"
-    abbr --add es "sudo emerge --sync"
-    abbr --add eup "sudo emerge -DNuva @world"
+    abbr --add es "sudo emerge-webrsync -v"
+    abbr --add eup "sudo emerge -DUuva @world"
     abbr --add remote "setsid env TMUX= alacritty -e bash ~/bin/remote.sh"
 end
 
