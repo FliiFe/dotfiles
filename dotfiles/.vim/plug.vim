@@ -7,7 +7,10 @@ Plug 'yuttie/comfortable-motion.vim'
 " Completion manager
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'roxma/nvim-completion-manager'
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 " Tern support
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " Tern completion
@@ -70,3 +73,6 @@ Plug 'neovimhaskell/haskell-vim'
 
 " Discord Rich Presence
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
+
+" Code formatting
+Plug 'sbdchd/neoformat'
