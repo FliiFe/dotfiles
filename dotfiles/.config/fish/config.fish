@@ -1,55 +1,48 @@
 set -gx VISUAL "nvim"
 set -gx EDITOR "nvim"
-set -gx pathdirs $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.3.0/bin $HOME/.cargo/bin
+set -gx PATH $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.3.0/bin $HOME/.cargo/bin $HOME/Mathematica/bin
 set -gx GPG_TTY (tty)
 set primary (cat ~/.primary)
 
-for dir in $pathdirs;
-    test -d $dir; and not contains $dir $PATH; and set -gx PATH $dir $PATH
-end
-
 if status --is-interactive
-    [ (tty) = "/dev/tty6" ]; and [ "$DISPLAY" = "" ]; and exec startx
+    # [ (tty) = "/dev/tty2" ]; and [ "$DISPLAY" = "" ]; and exec startx
 
     # Base16 Colourscheme
     cat $HOME/.config/base16-shell/scripts/base16-eighties.sh | sed \
         's/^\(.*\)background/printf "" #\1background/g' | sh
 
     if [ "$TMUX" = "" ]
-        command -v tmux; and exec tmux -2
+        [ (tty) != "/dev/tty2" ]; and command -v tmux; and exec tmux -2
     end
-
-    # function hybrid_bindings --description "Vi-style bindings"
-    #     for mode in default insert visual
-    #         fish_default_key_bindings -M $mode
-    #     end
-    #     fish_vi_key_bindings --no-erase
-    # end
-    # set -g fish_key_bindings hybrid_bindings
 
     set -gx fish_color_normal white
     set -gx fish_color_command $primary
     set -gx fish_color_param white
     set -gx fish_color_quote yellow
     set -gx fish_color_escape $primary
-    set -gx fish_color_redirection blue
+    set -gx fish_color_redirection $primary
     set -gx fish_color_end $primary
     set -gx fish_color_autosuggestion 808080
 
     set -gx GOPATH ~/gowork
-    abbr --add j "jump"
-    abbr --add l "ls -la"
-    abbr --add lah "ls -lah"
-    abbr --add gst "git status"
-    abbr --add gph "git push"
-    abbr --add gpl "git pull"
-    abbr --add ga "git add"
-    abbr --add gc "git commit"
-    abbr --add gd "git diff"
-    abbr --add eav "sudo emerge -av"
-    abbr --add ecav "sudo emerge -cav"
-    abbr --add es "sudo emerge-webrsync -v"
-    abbr --add eup "sudo emerge -DUuva @world"
-    abbr --add remote "setsid env TMUX= alacritty -e bash ~/bin/remote.sh"
+    # abbr --add --global j "jump"
+    abbr --add --global l "ls -la"
+    abbr --add --global lah "ls -lah"
+    abbr --add --global gst "git status"
+    abbr --add --global gph "git push"
+    abbr --add --global gpl "git pull"
+    abbr --add --global ga "git add"
+    abbr --add --global gc "git commit"
+    abbr --add --global gd "git diff"
+    abbr --add --global eav "sudo emerge -av"
+    abbr --add --global ecav "sudo emerge -cav"
+    abbr --add --global es "sudo emerge --sync"
+    abbr --add --global eup "sudo emerge -DUuva @world"
+    abbr --add --global e "sudo emerge"
+    abbr --add --global eq "sudo emerge -q"
+    abbr --add --global remote "setsid env TMUX= alacritty -e bash ~/bin/remote.sh"
+    
+    # OPAM configuration
+    source /home/fliife/.opam/opam-init/init.fish > /dev/null 2> /dev/null or true
 end
 
