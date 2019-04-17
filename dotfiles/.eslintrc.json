@@ -28,8 +28,8 @@
             "single"
         ],
         "semi": [
-            "warn",
-            "always"
+            "error",
+            "never"
         ],
         "no-console": "off"
     }
