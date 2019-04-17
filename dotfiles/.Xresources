@@ -31,7 +31,7 @@ Xcursor.theme: Vanilla-DMZ
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.color-enabled: true
-rofi.color-window: #a00c0c0c, #a00c0c0c, #ff606060
+rofi.color-window: #b20f0f0f, #b20f0f0f, #ff606060
 rofi.color-normal: #00000000, #dadada, #00000000, #e4e4e4, #1c1c1c
 rofi.color-active: #00000000, #5f87df, #00000000, #5f87df, #1c1c1c
 rofi.color-urgent: #00000000, #df5f5f, #00000000, #df5f5f, #1c1c1c
@@ -39,7 +39,9 @@ rofi.separator-style: none
 rofi.hide-scrollbar: true
 rofi.lines: 10
 rofi.fuzzy: true
-rofi.terminal: urxvtc
+rofi.terminal: alacritty
 rofi.ssh-client: /home/fliife/bin/remote.sh
 rofi.parse-hosts: true
 rofi.font: Roboto 14
+rofi.run-command: fish -c '{cmd}'
+rofi.modi: run,drun,ssh,combi
