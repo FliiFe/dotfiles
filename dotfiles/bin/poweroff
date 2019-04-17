@@ -30,15 +30,9 @@ if [ "$EXIT" = "$POWER" ]; then
 elif [ "$EXIT" = "$REBOOT" ]; then
     sudo reboot
 elif [ "$EXIT" = "$SUSPEND" ]; then
-    lock &
-    sleep 1
-    sudo pm-suspend
+    systemctl suspend
 elif [ "$EXIT" = "$HIBERNATE" ]; then
-    lock &
-    sleep 1 
-    sudo pm-hibernate
+    systemctl hibernate
 elif [ "$EXIT" = "$HYBRID" ]; then
-    lock &
-    sleep 1 
-    sudo pm-suspend-hybrid
+    systemctl hybrid-sleep
 fi

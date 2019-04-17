@@ -7,6 +7,6 @@ set newbg $argv[1]
 rm ~/.bg
 ln -s $newbg ~/.bg
 
-convert $newbg -fill black -colorize 30% -gravity Center -resize 1920x -crop 1920x1080+0+0 +repage ~/.bg.lock.png
+convert $newbg -fill black -colorize 30% -gravity Center -resize x1080 -crop 1920x1080+0+0 +repage ~/.bg.lock.png
 
 ~/.fehbg
