@@ -29,7 +29,7 @@ font-4 = NotoEmojiColor:pixelsize=10;10
 
 modules-left = i3wm title
 modules-center = weather
-modules-right = battery charging date clock
+modules-right = spotify battery charging date clock
 
 ; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0
@@ -39,7 +39,9 @@ wm-name = i3
 tray-position = right
 tray-maxsize = 16
 ; tray-background = #2D403B
-tray-background = #0B383C
+; tray-background = #0B383C
+; tray-background = #283131
+tray-background = #b30f0f0f
 tray-padding = 10
 tray-scale = 1.0
 
@@ -157,5 +159,15 @@ format-muted-foreground = #888
 [module/title]
 type = internal/xwindow
 format-foreground = #999
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format-foreground = #fafafa
+format-padding = 2
+format = <label>
+exec = ~/.config/polybar/spotify_status.py -f '{artist} - {song}'
+format-underline = #1db954
 
 ; vim: ft=dosini:foldmethod=manual:
