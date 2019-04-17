@@ -37,8 +37,9 @@ cp ~/.vimrc .
 done_task
 
 new_task 'vim config'
-mkdir -p .vim .config
+mkdir -p .vim .config .vim/autoload/airline/themes
 and cp -r ~/.vim/{init.vim,plug.vim} .vim
+and cp ~/.vim/autoload/airline/themes/base16.vim .vim/autoload/airline/themes
 and ln -s ../.vim .config/nvim
 done_task
 
@@ -57,6 +58,7 @@ done_task
 new_task 'lock script'
 mkdir bin
 and cp ~/bin/lock bin/lock
+and cp ~/.config/betterlockscreenrc .config
 done_task
 
 ## polybar
@@ -119,11 +121,6 @@ new_task 'eslint'
 cp ~/.eslintrc.json .
 done_task
 
-## remote script
-new_task 'remote.sh script'
-cp ~/bin/remote.sh bin/
-done_task
-
 ## change bg script
 new_task 'change-bg script'
 cp ~/bin/change-bg bin/
@@ -146,21 +143,14 @@ mkdir -p .config/alacritty
 and cp ~/.config/alacritty/alacritty.yml .config/alacritty/alacritty.yml 
 done_task
 
-## Cerebro config
-new_task 'cerebro config'
-mkdir -p .config/Cerebro
-and cp ~/.config/Cerebro/{config.json,theme.css} .config/Cerebro/
+new_task 'zathura config'
+mkdir -p .config/zathura
+and cp ~/.config/zathura/zathurarc .config/zathura/
 done_task
 
 ## Compton config
 new_task 'compton configuration file'
 cp ~/.compton.conf ./
-done_task
-
-## imgur-screenshot config
-new_task 'imgur-screenshot config'
-mkdir -p .config/imgur-screenshot
-and cp ~/.config/imgur-screenshot/settings.conf .config/imgur-screenshot
 done_task
 
 new_task 'custom icons'
@@ -178,4 +168,12 @@ done_task
 
 new_task 'brightness-related scripts'
 cp ~/bin/*brightness* bin/
+done_task
+
+new_task 'screenshot utility'
+cp ~/bin/screen bin/
+done_task
+
+new_task 'kernel build script'
+cp ~/bin/make_kernel bin/
 done_task

@@ -24,16 +24,11 @@ function end_with_files
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim ^/dev/null
         and echo 'Installing vim plugins'
         and vim +PlugInstall +UpdateRemotePlugins +qa
-        and echo "Applying airline patch"
-        and cd $HOME/.vim/plugged/vim-airline-themes/
-        and git apply <$patches/airline-theme.patch
-        and cd -
     if echo $argv | grep fish >/dev/null;
         echo 'Installing omf'
         curl -L https://get.oh-my.fish ^/dev/null | fish
-        # TODO: Handle case where omf was not previously installed and is hence not available before the next execution of fish
         for module in cd fzf gi gityaw jump vcs wttr
-            omf install $module
+            fish -c "omf install $module"
         end
         echo 'Installing base16-shell'
         git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
