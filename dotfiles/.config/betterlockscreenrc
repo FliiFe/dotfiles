@@ -1,0 +1,21 @@
+# Lockscreen language
+export LC_ALL=fr_FR
+
+insidecolor=00000000
+ringcolor=ffffff50
+keyhlcolor=ffffffa0
+bshlcolor=ffffffa0
+separatorcolor=00000000
+insidevercolor=00000000
+insidewrongcolor=d23c3dff
+ringvercolor=ffffff50
+ringwrongcolor=ffffff50
+verifcolor=ffffff50
+timecolor=ffffffff
+datecolor=ffffffff
+loginbox=00000066
+font="Roboto Light"
+lockargs="-e --indicator" # "--date-align 0 --datepos='x+43:h-45'"
+locktext="      %a %d %b %Y"
+
+# vim: ft=sh
