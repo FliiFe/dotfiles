@@ -1,0 +1,23 @@
+#!/usr/bin/env fish
+
+test (id --user) = 0; or exec sudo (status --current-filename)
+
+pushd /usr/src/linux
+
+test -e .config; or make olddefconfig
+
+set linux_version (realpath . | cut -d- -f2-)
+
+sudo make -j9
+sudo make modules_install
+sudo make install
+sudo genkernel --udev initramfs --install
+
+cd /boot
+
+sudo cp vmlinuz-$linux_version EFI/Gentoo/bootx64.efi
+sudo cp initramfs-genkernel-x86_64-$linux_version current-initramfs
+
+emerge -q @module-rebuild
+
+popd
