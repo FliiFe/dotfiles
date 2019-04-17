@@ -1,26 +1,19 @@
 #!/bin/sh
+
 # Pause as compose key
-setxkbmap fr -option compose:paus
+setxkbmap fr -option compose:paus &
 # eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 redshift -l 50.674520:3.216898 &
 # Set the background
-sh ~/.fehbg
+sh ~/.fehbg &
 # Start the composer
 compton &
+gpaste-client applet &
 eval "$(ssh-agent)"
 # numlockx on
-dunst &
-# restore previous brightnesses
-bin/brightness
-bin/kbdbrightness
-bin/setup-touchpad
-nm-applet &
-blueman-applet &
-lidmanager &
-batterylevelwatcher &
-pa-applet --disable-notifications &
-libinput-gestures-setup start
 # synergys
-exec ck-launch-session dbus-launch --exit-with-session i3
+# exec ck-launch-session dbus-launch --exit-with-session i3
+xss-lock -- ~/bin/lock --lock &
 # exec i3
+exec dbus-launch --exit-with-session i3

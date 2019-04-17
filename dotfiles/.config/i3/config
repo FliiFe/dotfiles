@@ -38,10 +38,11 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 # bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec ulauncher
 # Launch rofi as a window picker
 # bindsym $mod+w exec rofi -show window
 bindsym $mod+g exec nautilus
-exec cerebro
+# exec ulauncher
 
 # change focus
 bindsym $mod+h focus left
@@ -68,7 +69,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+minus split h
+bindsym $mod+v split v
 
 # split in vertical orientation (Mod+Shift+\)
 # bindcode $mod+Shift+51 split v
@@ -83,6 +84,7 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+s sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -134,8 +136,8 @@ bindsym $mod+Shift+e exec i3-msg exit
 
 # Power off
 bindsym XF86PowerOff exec ~/bin/poweroff
-bindsym XF86Sleep exec ~/bin/lock && sudo pm-suspend
-bindsym $mod+Ctrl+l exec ~/bin/lock
+bindsym XF86Sleep exec ~/bin/lock --lock dim && systemctl hibernate
+bindsym $mod+Ctrl+l exec ~/bin/lock --lock dim
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -149,6 +151,11 @@ mode "resize" {
     bindsym j resize grow height 10 px or 10 ppt
     bindsym k resize shrink height 10 px or 10 ppt
     bindsym l resize grow width 10 px or 10 ppt
+
+    bindsym Shift+h resize shrink width 1 px or 1 ppt
+    bindsym Shift+j resize grow height 1 px or 1 ppt
+    bindsym Shift+k resize shrink height 1 px or 1 ppt
+    bindsym Shift+l resize grow width 1 px or 1 ppt
 
     # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
@@ -212,7 +219,8 @@ bindsym $mod+Shift+semicolon move scratchpad
 bindsym $mod+semicolon scratchpad show
 
 # Imgur-screenshot
-bindsym Print exec bash ~/imgur-screenshot/imgur-screenshot.sh
+# bindsym Print exec bash ~/imgur-screenshot/imgur-screenshot.sh
+bindsym Print exec ~/bin/screen
 
 # Apply Xresources configurations
 exec xrdb -merge ~/.Xresources
@@ -232,7 +240,7 @@ exec polybar first
 # # Put Android Studio in workspace 4
 # assign [class="(?i)jetbrains"] 4
 # Put discord on workspace 2
-assign [class="(?i)Discord"] 2
+# assign [class="(?i)Discord"] 2
 # # Put spotify on workspace 3
 # assign [class="(?i)Spotify"] 3
 
@@ -267,17 +275,24 @@ focus_on_window_activation urgent
 workspace_auto_back_and_forth yes
 
 # exec setsid nmcli con up id TVICC
-exec ~/bin/lock
+exec ~/bin/lock --lock dim
 
 for_window [class="gtkdialog"] floating enable
+for_window [class="anbox"] floating enable
 for_window [title="*Figure*"] floating enable
+for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
+for_window [instance="musixmatch"] floating enable
+for_window [instance="musixmatch"] sticky enable
+for_window [instance="www.netflix.com__browse"] fullscreen enable
+for_window [instance="ulauncher"] floating enable
+for_window [class="Google-chrome" window_role="pop-up"] floating enable
 
 # restore previous brightnesses
 exec ~/bin/brightness
 exec ~/bin/kbdbrightness
 exec ~/bin/setup-touchpad
 exec ~/bin/batterylevelwatcher
-exec ~/bin/lidmanager
+# exec ~/bin/lidmanager
 
 exec nm-applet
 exec blueman-applet
