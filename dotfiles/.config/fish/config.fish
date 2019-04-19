@@ -6,14 +6,17 @@ set primary (cat ~/.primary)
 
 if status --is-interactive
     # [ (tty) = "/dev/tty2" ]; and [ "$DISPLAY" = "" ]; and exec startx
-
-    # Base16 Colourscheme
-    cat $HOME/.config/base16-shell/scripts/base16-eighties.sh | sed \
-        's/^\(.*\)background/printf "" #\1background/g' | sh
-
-    if [ "$TMUX" = "" ]
-        [ (tty) != "/dev/tty2" ]; and command -v tmux; and exec tmux -2
+    
+    if [ (tty | string sub -s 1 -l 8) != "/dev/tty" ];
+        if [ "$TMUX" = "" ]
+            command -v tmux; and exec tmux -2
+        end
+        # Base16 Colourscheme
+        cat $HOME/.config/base16-shell/scripts/base16-eighties.sh | sed \
+            's/^\(.*\)background/printf "" #\1background/g' | sh
     end
+
+
 
     set -gx fish_color_normal white
     set -gx fish_color_command $primary

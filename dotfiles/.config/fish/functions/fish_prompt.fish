@@ -1,4 +1,8 @@
 set primary (cat ~/.primary)
+set separator "  " 
+if [ (tty | string sub -s 1 -l 8) = "/dev/tty" ];
+    set separator " > "
+end
 
 function fish_prompt
     set_color $primary
@@ -9,7 +13,7 @@ function fish_prompt
 end
 
 function __custom_prompt_separator --description "function used to set the delimiter"
-    printf "  "
+    printf $separator
 end
 
 function __custom_prompt_whoami --description "returns username and hostname"
