@@ -25,11 +25,11 @@ font-0 = Roboto:size=10;3
 font-1 = Material Icons:size=14;5
 font-2 = DejaVu Sans:size=12;3
 font-3 = NotoSansSymbols:size=10;3
-font-4 = NotoEmojiColor:pixelsize=10;10
+font-4 = NotoEmoji:pixelsize=10;10
 
 modules-left = i3wm title
 modules-center = weather
-modules-right = spotify battery charging date clock
+modules-right = spotify battery charging date clock pulseaudio
 
 ; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0
@@ -143,6 +143,50 @@ label-urgent = %index%
 label-urgent-foreground = #1c1c1c
 label-urgent-background = #b8df5f5f
 label-urgent-padding = 4
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = false
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+label-volume-foreground = #fff
+ramp-volume-foreground = #fff
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted =  0%
+label-muted-foreground = #666
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 [module/volume]
 type = internal/volume

@@ -296,5 +296,5 @@ exec ~/bin/batterylevelwatcher
 
 exec nm-applet
 exec blueman-applet
-exec pa-applet --disable-notifications
+# exec pa-applet --disable-notifications
 exec libinput-gestures-setup start
