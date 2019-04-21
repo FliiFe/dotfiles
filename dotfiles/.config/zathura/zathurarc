@@ -10,3 +10,6 @@ set statusbar-bg "#0f0f0f"
 set smooth-scroll true
 set show-v-scrollbar true
 set window-title-home-tilde true
+
+map t exec 'compton-trans -c 100'
+map <C-t> exec 'compton-trans -c 70'
