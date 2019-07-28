@@ -15,7 +15,7 @@ function end_with_files
     echo -e '\e[0;32mCopying files…\e[0m'
     for i in $argv
         mkdir -p (dirname ~/$i)
-        cp -d $i ~/$i
+        cp -rd $i ~/$i
     end
     command -v nvim >/dev/null; and alias vim=nvim
     echo $argv | grep vim >/dev/null;
