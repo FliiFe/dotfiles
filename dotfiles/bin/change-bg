@@ -5,8 +5,11 @@ test ! -n "$argv[1]"; and echo "Usage: change-bg [PATH]"; and exit 1
 set newbg $argv[1]
 
 rm ~/.bg
-ln -s $newbg ~/.bg
+# ln -s $newbg ~/.bg
+convert $newbg png:$HOME/.bg
 
 convert $newbg -fill black -colorize 30% -gravity Center -resize x1080 -crop 1920x1080+0+0 +repage ~/.bg.lock.png
 
 ~/.fehbg
+
+~/bin/lock --update ~/.bg
