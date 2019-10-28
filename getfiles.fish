@@ -177,3 +177,7 @@ done_task
 new_task 'kernel build script'
 cp ~/bin/make_kernel bin/
 done_task
+
+new_task 'XCompose'
+cp ~/.XCompose ./
+done_task
