@@ -1,5 +1,9 @@
 Plug 'Shougo/context_filetype.vim'
 Plug 'chriskempson/base16-vim'
+" Syntax highlight under cursor only
+Plug 'junegunn/limelight.vim'
+" Distraction free writing
+Plug 'junegunn/goyo.vim'
 " Git gutter
 " Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
@@ -92,4 +96,11 @@ Plug 'bfredl/nvim-ipy'
 " Code formatting
 Plug 'sbdchd/neoformat'
 
+" French spellcheck
+Plug 'dpelle/vim-Grammalecte'
+
+" Lean Theorem Prover
+Plug 'leanprover/lean.vim'
+
+" Intellisense
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
