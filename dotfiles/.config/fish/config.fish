@@ -1,6 +1,8 @@
 set -gx VISUAL "nvim"
 set -gx EDITOR "nvim"
-set -gx PATH $HOME/bin $HOME/.npm-global/bin /usr/local/bin $PATH /usr/local/go/bin $GOPATH $HOME/.local/bin $HOME/.gem/ruby/2.3.0/bin $HOME/.cargo/bin $HOME/Mathematica/bin
+set -g fish_user_paths $HOME/bin $HOME/.npm-global/bin /usr/local/go/bin $HOME/.local/bin $HOME/.gem/ruby/2.3.0/bin $HOME/.cargo/bin $HOME/Mathematica/bin $HOME/gowork/bin $HOME/flutter/bin $HOME/android/tools/bin
+# Dirty hack
+# set -gx PATH $HOME/android/platform-tools/ $PATH
 set -gx GPG_TTY (tty)
 set primary (cat ~/.primary)
 
