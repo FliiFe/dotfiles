@@ -41,6 +41,7 @@ mkdir -p .vim .config .vim/autoload/airline/themes
 and cp -r ~/.vim/{init.vim,plug.vim} .vim
 and cp ~/.vim/autoload/airline/themes/base16.vim .vim/autoload/airline/themes
 and ln -s ../.vim .config/nvim
+and cp ~/.vim/coc-settings.json .vim/
 done_task
 
 ## Tmux
