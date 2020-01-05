@@ -7,7 +7,7 @@ height = 25
 
 ; Background argb color (e.g. #f00, #ff992a, #ddff1023)
 ; background = #d80f0f0f
-background = #b30f0f0f
+background = #990f0f0f
 
 ; Foreground argb color (e.g. #f00, #ff992a, #ddff1023)
 foreground = #00000000
@@ -203,6 +203,7 @@ format-muted-foreground = #888
 [module/title]
 type = internal/xwindow
 format-foreground = #999
+label-maxlen = 50
 
 [module/spotify]
 type = custom/script
