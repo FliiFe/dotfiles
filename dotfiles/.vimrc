@@ -353,7 +353,7 @@ augroup END
 
 augroup ConfigReload
     au!
-    autocmd BufWritePost .compton.conf silent :!killall -USR1 compton
+    autocmd BufWritePost .compton.conf silent :!killall -USR1 picom
     autocmd BufWritePost ~/.config/i3/config silent :!i3-msg reload
     autocmd BufWritePost .tmux.conf silent :!tmux source-file ~/.tmux.conf
     autocmd BufWritePost ~/.config/polybar/config :!~/bin/reload-polybar
