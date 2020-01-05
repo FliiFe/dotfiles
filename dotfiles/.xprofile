@@ -8,7 +8,7 @@ redshift -l 50.674520:3.216898 &
 # Set the background
 sh ~/.fehbg &
 # Start the composer
-compton &
+picom &
 gpaste-client applet &
 eval "$(ssh-agent)"
 # numlockx on
