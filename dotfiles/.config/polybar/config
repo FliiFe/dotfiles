@@ -7,7 +7,7 @@ height = 25
 
 ; Background argb color (e.g. #f00, #ff992a, #ddff1023)
 ; background = #d80f0f0f
-background = #990f0f0f
+background = #B2000000
 
 ; Foreground argb color (e.g. #f00, #ff992a, #ddff1023)
 foreground = #00000000
@@ -41,7 +41,8 @@ tray-maxsize = 16
 ; tray-background = #2D403B
 ; tray-background = #0B383C
 ; tray-background = #283131
-tray-background = #b30f0f0f
+; tray-background = #b30f0f0f
+tray-background = #09090A
 tray-padding = 10
 tray-scale = 1.0
 
@@ -181,7 +182,7 @@ format-volume = <ramp-volume> <label-volume>
 ; Available tokens:
 ;   %percentage% (default)
 label-muted =  0%
-label-muted-foreground = #666
+label-muted-foreground = #888
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 
