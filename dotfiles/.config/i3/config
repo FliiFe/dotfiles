@@ -136,8 +136,8 @@ bindsym $mod+Shift+e exec i3-msg exit
 
 # Power off
 bindsym XF86PowerOff exec ~/bin/poweroff
-bindsym XF86Sleep exec ~/bin/lock --lock dim && systemctl hibernate
-bindsym $mod+Ctrl+l exec ~/bin/lock --lock dim
+bindsym XF86Sleep exec ~/bin/lock --lock && systemctl hibernate
+bindsym $mod+Ctrl+l exec ~/bin/lock --lock
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -277,9 +277,11 @@ focus_on_window_activation urgent
 workspace_auto_back_and_forth yes
 
 # exec setsid nmcli con up id TVICC
-exec ~/bin/lock --lock dim
+exec ~/bin/lock --lock
+# exec ~/bin/lock --lock dim
 
 for_window [class="gtkdialog"] floating enable
+for_window [class="*itwarden"] floating enable
 for_window [class="anbox"] floating enable
 for_window [title="*Figure*"] floating enable
 for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
@@ -300,5 +302,5 @@ exec nm-applet
 exec blueman-applet
 # exec pa-applet --disable-notifications
 exec libinput-gestures-setup start
-exec env KEYBASE_AUTOSTART=1 run_keybase
-exec /opt/Caprine/caprine
+# exec env KEYBASE_AUTOSTART=1 run_keybase
+# exec /opt/Caprine/caprine
