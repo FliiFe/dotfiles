@@ -57,6 +57,7 @@ let g:vimtex_syntax_minted = [
 let g:vimtex_quickfix_open_on_warning = 0
 let g:latex_view_general_viewer = 'zathura'
 let g:vimtex_view_method = "zathura"
+nmap <leader>ls <Plug>(vimtex-compile-ss)
 
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()

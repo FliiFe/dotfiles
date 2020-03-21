@@ -103,4 +103,5 @@ Plug 'dpelle/vim-Grammalecte'
 Plug 'leanprover/lean.vim'
 
 " Intellisense
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
