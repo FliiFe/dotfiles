@@ -136,8 +136,10 @@ bindsym $mod+Shift+e exec i3-msg exit
 
 # Power off
 bindsym XF86PowerOff exec ~/bin/poweroff
-bindsym XF86Sleep exec ~/bin/lock --lock && systemctl hibernate
-bindsym $mod+Ctrl+l exec ~/bin/lock --lock
+# bindsym XF86Sleep exec ~/bin/lock --lock && systemctl hibernate
+# bindsym $mod+Ctrl+l exec ~/bin/lock --lock
+bindsym XF86Sleep exec dm-tool switch-to-greeter
+bindsym $mod+Ctrl+l exec dm-tool switch-to-greeter
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -211,6 +213,8 @@ gaps inner 20
 gaps outer 7
 smart_gaps on
 
+bindsym $mod+Ctrl+Shift+g gaps outer current set 0; gaps inner current set 0
+
 # Disable borders for all windows
 new_window none
 
@@ -277,13 +281,13 @@ focus_on_window_activation urgent
 workspace_auto_back_and_forth yes
 
 # exec setsid nmcli con up id TVICC
-exec ~/bin/lock --lock
+# exec ~/bin/lock --lock
 # exec ~/bin/lock --lock dim
 
 for_window [class="gtkdialog"] floating enable
-for_window [class="*itwarden"] floating enable
+for_window [class=".*itwarden"] floating enable
 for_window [class="anbox"] floating enable
-for_window [title="*Figure*"] floating enable
+for_window [title=".*Figure.*"] floating enable
 for_window [instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
 for_window [instance="musixmatch"] floating enable
 for_window [instance="musixmatch"] sticky enable
