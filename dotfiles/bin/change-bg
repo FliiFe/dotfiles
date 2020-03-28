@@ -8,7 +8,7 @@ rm ~/.bg
 # ln -s $newbg ~/.bg
 convert $newbg -gravity Center -resize x1080 -crop 1920x1080+0+0 +repage png:$HOME/.bg
 
-convert $newbg -fill black -colorize 30% ~/.bg.lock.png
+convert $HOME/.bg -fill black -colorize 30% ~/.bg.lock.png
 
 ~/.fehbg
 
