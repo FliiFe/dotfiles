@@ -138,7 +138,7 @@ bindsym $mod+Shift+e exec i3-msg exit
 bindsym XF86PowerOff exec ~/bin/poweroff
 # bindsym XF86Sleep exec ~/bin/lock --lock && systemctl hibernate
 # bindsym $mod+Ctrl+l exec ~/bin/lock --lock
-bindsym XF86Sleep exec dm-tool switch-to-greeter
+bindsym XF86Sleep exec dm-tool switch-to-greeter & systemctl hibernate
 bindsym $mod+Ctrl+l exec dm-tool switch-to-greeter
 
 # resize window (you can also use the mouse for that)
