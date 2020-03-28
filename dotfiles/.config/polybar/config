@@ -42,7 +42,7 @@ tray-maxsize = 16
 ; tray-background = #0B383C
 ; tray-background = #283131
 ; tray-background = #b30f0f0f
-tray-background = #09090A
+tray-background = #003E4D
 tray-padding = 10
 tray-scale = 1.0
 
