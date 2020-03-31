@@ -1,16 +1,19 @@
 set page-padding 10
 set adjust-open width
 set recolor true
-set font "Source Code Pro normal 11"
-# set recolor-lightcolor "#0f0f0f"
+set font "Noto normal 11"
 set recolor-keephue true
 set recolor-reverse-video true
-set completion-bg "#0f0f0f"
-set inputbar-bg "#0f0f0f"
-set statusbar-bg "#0f0f0f"
+set completion-bg rgba(0,0,0,0)
+set inputbar-bg rgba(0,0,0,0)
+set statusbar-bg rgba(0,0,0,0)
+set guioptions "v"
 set smooth-scroll true
 set show-v-scrollbar true
 set window-title-home-tilde true
+set database sqlite
 
 set default-bg rgba(0,0,0,0.7)
+set index-bg rgba(0,0,0,0)
+set completion-group-bg rgba(0,0,0,0.3)
 set recolor-lightcolor rgba(0,0,0,0)
