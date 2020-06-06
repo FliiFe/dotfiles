@@ -1,6 +1,5 @@
 #!/usr/bin/env fish
 
-curl ^/dev/null http://www.prevision-meteo.ch/services/json/lys-lez-lannoy \
-    | jq '(.current_condition.tmp|tostring) + "°C, " + .current_condition.condition' -M ^/dev/null \
-    | string trim -c '"'
-
+curl 'https://api.openweathermap.org/data/2.5/onecall?lat=50.6333&lon=3.0667&appid=700f91aaa80f886f6b5e9dc39639ff5e&lang=fr&units=metric&exclude=minutely,hourly' --silent \
+    | jq '"Lille — " + (.daily[0].temp.min*10|round/10|tostring) + "°C — " + (.current.temp*10|round/10|tostring) + "°C — " + (.daily[0].temp.max*10|round/10|tostring) + "°C — " + .current.weather[0].description' -rM \
+    | sed 's/[A-z][-\'a-z À-ÖØ-öø-ÿ]*/\u&/g'

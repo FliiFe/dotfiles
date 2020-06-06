@@ -1,0 +1,7 @@
+#!/usr/bin/env fish
+pgrep emerge >/dev/null
+and tail /var/log/emerge.log -n 1 \
+    | grep " of " \
+    | cut -d' ' -f4-8 \
+    | perl -pe 's/\((\d+) of (\d+).*?\(([a-z\-]+.[a-zA-Z\-]+)-.*$/\3 (\1 of \2)/g'
+echo

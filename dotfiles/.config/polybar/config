@@ -29,7 +29,7 @@ font-4 = NotoEmoji:pixelsize=10;10
 
 modules-left = i3wm title
 modules-center = weather
-modules-right = spotify battery charging date clock pulseaudio
+modules-right = emerge spotify battery charging date clock pulseaudio
 
 ; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0
@@ -42,7 +42,7 @@ tray-maxsize = 16
 ; tray-background = #0B383C
 ; tray-background = #283131
 ; tray-background = #b30f0f0f
-tray-background = #003E4D
+tray-background = #B2000000
 tray-padding = 10
 tray-scale = 1.0
 
@@ -105,7 +105,8 @@ date = %H:%M:%S
 type = internal/date
 interval = 10
 date = %d-%m-%Y
-format =   <label>
+; format =   <label>
+format = %{A1:gsimplecal &:}  <label>%{A}
 format-foreground = #888
 
 [module/i3wm]
@@ -206,9 +207,18 @@ type = internal/xwindow
 format-foreground = #999
 label-maxlen = 50
 
+[module/emerge]
+type = custom/script
+interval = 5
+exec = ~/.config/polybar/emerge
+format-foreground = #fafafa
+format-padding = 2
+format = <label>
+format-underline = #6E56AF
+
 [module/spotify]
 type = custom/script
-interval = 1
+interval = 5
 format-prefix = " "
 format-foreground = #fafafa
 format-padding = 2
