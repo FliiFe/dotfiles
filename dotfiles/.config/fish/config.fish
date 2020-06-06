@@ -1,5 +1,6 @@
 set -gx VISUAL "nvim"
 set -gx EDITOR "nvim"
+set -gx LANG "en_GB.UTF-8"
 set -g fish_user_paths $HOME/bin $HOME/.npm-global/bin /usr/local/go/bin $HOME/.local/bin $HOME/.gem/ruby/2.3.0/bin $HOME/.cargo/bin $HOME/Mathematica/bin $HOME/gowork/bin $HOME/flutter/bin $HOME/android/tools/bin
 # Dirty hack
 # set -gx PATH $HOME/android/platform-tools/ $PATH
@@ -10,7 +11,7 @@ if status --is-interactive
     # [ (tty) = "/dev/tty2" ]; and [ "$DISPLAY" = "" ]; and exec startx
     
     if [ (tty | string sub -s 1 -l 8) != "/dev/tty" ];
-        if [ "$TMUX" = "" ]
+        if [ "$TMUX$SSH_CONNECTION" = "" ]
             command -v tmux; and exec tmux -2
         end
         # Base16 Colourscheme
@@ -40,11 +41,14 @@ if status --is-interactive
     abbr --add --global gc "git commit"
     abbr --add --global gd "git diff"
     abbr --add --global eav "sudo emerge -av"
+    abbr --add --global eav1 "sudo emerge -av1"
     abbr --add --global ecav "sudo emerge -cav"
-    abbr --add --global es "sudo emerge --sync"
+    abbr --add --global es "sudo eix-sync"
     abbr --add --global eup "sudo emerge -DUuva @world"
     abbr --add --global e "sudo emerge"
     abbr --add --global eq "sudo emerge -q"
+    abbr --add --global eq1 "sudo emerge -q1"
+    abbr --add --global ep "emerge --pretend"
     abbr --add --global remote "setsid env TMUX= alacritty -e bash ~/bin/remote.sh"
     
     # OPAM configuration
