@@ -1,19 +1,21 @@
 #!/bin/sh
 
+# Set the background
+# sh ~/.fehbg &
 # Pause as compose key
 setxkbmap fr -option compose:paus &
-# eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
 export SSH_AUTH_SOCK
-redshift -l 50.674520:3.216898 &
-# Set the background
-sh ~/.fehbg &
+# redshift -l 50.674520:3.216898 &
 # Start the composer
-picom &
+# picom &
 gpaste-client applet &
-eval "$(ssh-agent)"
+# eval "$(ssh-agent)"
 # numlockx on
 # synergys
 # exec ck-launch-session dbus-launch --exit-with-session i3
-xss-lock -- ~/bin/lock --lock &
+# xss-lock -- ~/bin/lock --lock &
+# light-locker --lock-on-suspend --lock-on-lid &
 # exec i3
-exec dbus-launch --exit-with-session i3
+# exec dbus-launch --exit-with-session i3
+exec gnome-session
