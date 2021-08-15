@@ -1,26 +1,48 @@
 {
     "languageserver": {
         "ocaml": {
-            "command": "ocaml-language-server",
-            "args": ["--stdio"],
-            "filetypes": ["ocaml", "reason"]
+            "command": "ocamllsp",
+            "filetypes": [
+                "ocaml"
+            ]
         },
         "dockerfile": {
             "command": "docker-langserver",
-            "filetypes": ["dockerfile"],
-            "args": ["--stdio"]
+            "filetypes": [
+                "dockerfile"
+            ],
+            "args": [
+                "--stdio"
+            ]
         },
         "haskell": {
-            "command": "hie-wrapper",
-            "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
-            "filetypes": ["hs", "lhs", "haskell"],
-            "initializationOptions": {}
+            "command": "ghcide",
+            "rootPatterns": [
+                "stack.yaml",
+                "*.cabal"
+            ],
+            "filetypes": [
+                "hs",
+                "lhs",
+                "haskell"
+            ],
+            "initializationOptions": {},
+            "args": [
+                "--lsp"
+            ]
         },
         "lean": {
             "command": "node",
-            "filetypes": ["lean"],
-            "args": ["/home/fliife/.npm-global/bin/lean-language-server", "--stdio"]
+            "filetypes": [
+                "lean"
+            ],
+            "args": [
+                "/home/fliife/.npm-global/bin/lean-language-server",
+                "--stdio"
+            ]
         }
     },
-    "coc.source.omni.filetypes": ["tex"]
+    "coc.source.omni.filetypes": [
+        "tex"
+    ]
 }

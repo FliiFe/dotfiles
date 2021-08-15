@@ -46,7 +46,10 @@ Plug 'scrooloose/nerdtree'
 " Fugitive - Git wrapper
 Plug 'tpope/vim-fugitive'
 " JSDoc
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', { 
+  \ 'for': ['javascript', 'javascript.jsx','typescript'], 
+  \ 'do': 'make install'
+\}
 " Add snippets.
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -102,6 +105,8 @@ Plug 'dpelle/vim-Grammalecte'
 " Lean Theorem Prover
 Plug 'leanprover/lean.vim'
 
-" Intellisense
+" Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'kevinoid/vim-jsonc' " comments in jsonc files & coc config
+
 

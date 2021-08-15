@@ -14,7 +14,10 @@ let g:jsdoc_enable_es6 = 1
 
 let g:javascript_plugin_jsdoc = 1
 
-let g:UltiSnipsExpandTrigger='<F4>'
+nnoremap <leader>ue :UltiSnipsEdit<CR>
+let g:UltiSnipsExpandTrigger="<F4>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<C-S-j>"
 inoremap <c-x><c-k> <c-x><c-k>
 
 " Display buffer line
@@ -46,6 +49,9 @@ augroup END
 nnoremap <leader>g :Goyo<CR>
 nnoremap <leader>lm :Limelight!!<CR>
 
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
+
 let g:polyglot_disabled = ['tex', 'latex']
 let g:vimtex_complete_enabled = 0
 let g:vimtex_compiler_progname = 'nvr'
@@ -55,6 +61,10 @@ let g:vimtex_syntax_minted = [
             \ },
             \]
 let g:vimtex_quickfix_open_on_warning = 0
+let g:tex_flavor='latex'
+" let g:vimtex_quickfix_mode=2
+" set conceallevel=1
+" let g:tex_conceal='abdmg'
 let g:latex_view_general_viewer = 'zathura'
 let g:vimtex_view_method = "zathura"
 nmap <leader>ls <Plug>(vimtex-compile-ss)
@@ -245,14 +255,14 @@ set mouse=a
 
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Sec>\\"
 else
     let &t_SI = "\e[5 q"
     let &t_EI = "\e[2 q"
 endif
 " Line numbers
 set number
-" Different hightlight for matchin parenthesis/brackets/...
+" Different highlight for matching parenthesis/brackets/...
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 " Show line numbers relative to the current line
 set relativenumber
@@ -267,11 +277,15 @@ set background=dark
 set splitbelow
 " set colorscheme
 set background=dark
-colorscheme base16-eighties
+colorscheme base16-material
 " colorscheme base16-apathy
 set background=dark
 " Always keep 5 lines above and below the cursor (when scrolling)
 set scrolloff=5
+setlocal spell
+set spelllang=fr,en_gb
+" from castel.dev/post/lecture-notes-1
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 function TransparentBg()
     " Transparent background
@@ -309,8 +323,8 @@ let g:gutentags_cache_dir = '/tmp/tags'
 fun LatexSkeleton()
     put ='\documentclass{article}'
     put =''
-    put ='\usepackage[utf8]{inputenc}'
-    put ='\usepackage[T1]{fontenc}'
+    " put ='\usepackage[utf8]{inputenc}'
+    " put ='\usepackage[T1]{fontenc}'
     put ='\usepackage[french]{babel}'
     put ='\usepackage[a4paper, margin=2cm]{geometry}'
     put ='\usepackage{amsmath}'
@@ -318,6 +332,7 @@ fun LatexSkeleton()
     put ='\usepackage{amsthm}'
     put ='\usepackage{stmaryrd}'
     put ='\usepackage{color}'
+    put ='\usepackage{lmodern}'
     put ='\usepackage[hidelinks]{hyperref}'
     put =''
     put ='\title{}'
@@ -336,10 +351,9 @@ fun LatexSkeleton()
     exec 'normal! f{'
 endfun
 
-let g:LatexBox_latexmk_preview_continuously=1
-
 augroup LatexFiletypeGroup
     au!
+    autocmd FileType tex silent let b:AutoPairs = {"{":"}","(":")"}
     autocmd BufEnter *.tex silent set ft=tex
     autocmd BufNewFile *.tex silent call LatexSkeleton()
     " autocmd FileType tex silent set updatetime=3000
