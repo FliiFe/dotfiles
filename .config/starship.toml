@@ -1,0 +1,24 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = "$username$hostname$directory$character$git_status"
+
+[character]
+success_symbol = '[](bold blue)'
+
+[package]
+disabled = true
+
+[username]
+format = '[$user]($style) [](bold blue) '
+
+[hostname]
+format = '[$ssh_symbol$hostname]($style) [](bold blue) '
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style) '
+fish_style_pwd_dir_length = 1
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )[](bold blue) '
