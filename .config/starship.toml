@@ -2,7 +2,7 @@
 
 add_newline = false
 
-format = "$username$hostname$directory$character$git_branch$git_status"
+format = "$username$hostname$directory$character($git_branch$git_status[](bold blue) )"
 
 [character]
 success_symbol = '[](bold blue)'
@@ -21,7 +21,7 @@ format = '[$path]($style)[$read_only]($read_only_style) '
 fish_style_pwd_dir_length = 1
 
 [git_status]
-format = '([$all_status$ahead_behind]($style) [](bold blue) )'
+format = '([$all_status$ahead_behind]($style) )'
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style) '
