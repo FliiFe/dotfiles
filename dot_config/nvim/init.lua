@@ -2,9 +2,12 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.smarttab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 vim.opt.expandtab = true
+
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 vim.keymap.set('n', '<Esc><Esc>', ':w<cr>')
 
@@ -32,7 +35,13 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme tokyonight-night]])
+      vim.cmd([[colorscheme tokyonight-moon]])
     end,
+  },
+  {
+    "lervag/vimtex",
+    init = function()
+      -- Use init for configuration, don't use the more common "config".
+    end
   },
 })
