@@ -1,3 +1,4 @@
 --italic-text=always
 --paging=never
 --plain
+--theme Dracula
