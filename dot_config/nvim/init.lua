@@ -14,7 +14,7 @@ vim.keymap.set('n', '<Esc><Esc>', ':w<cr>')
 vim.g.mapleader = ' '
 
 vim.keymap.set('n', '<Leader>q', ':q<CR>', { silent = true, desc = "Leave!" })
-vim.keymap.set('n', '<Return>', ':set hlsearch!<CR>', { silent = true })
+vim.keymap.set('n', '<Return>', ':set hlsearch!<CR>', { silent = true, desc = "Toggle search highlighting" })
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -218,7 +218,8 @@ require("lazy").setup({
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
-          { name = 'luasnip' }, -- For luasnip users.
+          { name = 'luasnip' },
+          { name = 'vimtex' },
         }, {
           { name = 'buffer' },
         })
@@ -375,8 +376,8 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = "Open all folds" })
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = "Close all folds" })
 
 vim.api.nvim_create_augroup("neotree_autoopen", { clear = true })
 vim.api.nvim_create_autocmd("BufRead", {
