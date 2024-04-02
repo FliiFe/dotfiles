@@ -2,10 +2,11 @@
 
 add_newline = false
 
-format = "$username$hostname$directory$character($git_branch$git_status[](bold blue) )"
+format = "$username$hostname$directory([](bold blue) $git_branch$git_status)$character"
 
 [character]
 success_symbol = '[](bold blue)'
+error_symbol = '[](bold red)'
 
 [package]
 disabled = true
