@@ -378,16 +378,3 @@ vim.o.foldenable = true
 -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = "Open all folds" })
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = "Close all folds" })
-
-vim.api.nvim_create_augroup("neotree_autoopen", { clear = true })
-vim.api.nvim_create_autocmd("BufRead", {
-  desc = "Open neo-tree on enter",
-  group = "neotree_autoopen",
-  once = true,
-  callback = function()
-    if not vim.g.neotree_opened then
-      vim.cmd "Neotree show"
-      vim.g.neotree_opened = true
-    end
-  end,
-})
