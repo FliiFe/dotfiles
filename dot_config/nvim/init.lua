@@ -324,7 +324,7 @@ require('lualine').setup {
 require 'neodev'.setup {}
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { 'pyright', 'rust_analyzer', 'lua_ls' }
+local servers = { 'pyright', 'rust_analyzer', 'lua_ls', 'tsserver' }
 local lspconfig = require('lspconfig')
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
