@@ -38,6 +38,7 @@ end
 
 require("lazy").setup({
   {
+    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     'romgrk/barbar.nvim',
     dependencies = {
       'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
