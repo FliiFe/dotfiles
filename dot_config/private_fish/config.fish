@@ -1,4 +1,5 @@
 if status is-interactive
-    starship init fish | source
-    pyenv init - | source
+    type -q starship; and starship init fish | source
+    type -q pyenv; and pyenv init - | source
+    type -q keychain; and eval (keychain --eval);
 end
