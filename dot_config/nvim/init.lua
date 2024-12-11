@@ -89,7 +89,9 @@ require("lazy").setup({
   {
     "lervag/vimtex",
     init = function()
-      vim.g.vimtex_view_method = "sioyek"
+      vim.g.vimtex_view_general_viewer = "okular"
+      vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
+      vim.g.vimtex_toc_config = {layers = {"content", "label", "todo"}, split_pos = "botright"}
     end
   },
   {
@@ -325,7 +327,7 @@ require('lualine').setup {
 require 'neodev'.setup {}
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { 'pyright', 'rust_analyzer', 'lua_ls', 'tsserver' }
+local servers = { 'pyright', 'rust_analyzer', 'lua_ls', 'ts_ls', 'clangd'}
 local lspconfig = require('lspconfig')
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
