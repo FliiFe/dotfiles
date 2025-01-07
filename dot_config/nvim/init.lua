@@ -38,7 +38,7 @@ end
 
 require("lazy").setup({
   {
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     'romgrk/barbar.nvim',
     dependencies = {
       'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
@@ -74,7 +74,7 @@ require("lazy").setup({
     end,
     opts = {
       animation = true,
-      sidebar_filetypes = { ['neo-tree'] = {event = 'BufWipeout'} }
+      sidebar_filetypes = { ['neo-tree'] = { event = 'BufWipeout' } }
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
@@ -91,7 +91,7 @@ require("lazy").setup({
     init = function()
       vim.g.vimtex_view_general_viewer = "okular"
       vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
-      vim.g.vimtex_toc_config = {layers = {"content", "label", "todo"}, split_pos = "botright"}
+      vim.g.vimtex_toc_config = { layers = { "content", "label", "todo" }, split_pos = "botright" }
     end
   },
   {
@@ -238,11 +238,12 @@ require("lazy").setup({
       'saadparwaiz1/cmp_luasnip',
     }
   },
-  { 'kevinhwang91/nvim-ufo', dependencies = { 'kevinhwang91/promise-async' } },
+  { 'kevinhwang91/nvim-ufo',      dependencies = { 'kevinhwang91/promise-async' } },
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
+  'kaarmu/typst.vim',
   {
     "nvim-neo-tree/neo-tree.nvim",
     lazy = false,
@@ -253,28 +254,28 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
     },
     keys = {
-    {
-      "<leader>fe",
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
-      end,
-      desc = "Explorer NeoTree (cwd)",
+      {
+        "<leader>fe",
+        function()
+          require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+        end,
+        desc = "Explorer NeoTree (cwd)",
+      },
+      {
+        "<leader>ge",
+        function()
+          require("neo-tree.command").execute({ source = "git_status", toggle = true })
+        end,
+        desc = "Git Explorer",
+      },
+      {
+        "<leader>be",
+        function()
+          require("neo-tree.command").execute({ source = "buffers", toggle = true })
+        end,
+        desc = "Buffer Explorer",
+      },
     },
-    {
-      "<leader>ge",
-      function()
-        require("neo-tree.command").execute({ source = "git_status", toggle = true })
-      end,
-      desc = "Git Explorer",
-    },
-    {
-      "<leader>be",
-      function()
-        require("neo-tree.command").execute({ source = "buffers", toggle = true })
-      end,
-      desc = "Buffer Explorer",
-    },
-  },
 
     opts = {
       close_if_last_window = true,
@@ -327,7 +328,7 @@ require('lualine').setup {
 require 'neodev'.setup {}
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { 'pyright', 'rust_analyzer', 'lua_ls', 'ts_ls', 'clangd'}
+local servers = { 'pyright', 'rust_analyzer', 'lua_ls', 'ts_ls', 'clangd', 'tinymist' }
 local lspconfig = require('lspconfig')
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -335,6 +336,11 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+-- lspconfig.tinymist.setup{
+  -- offset_encoding = "utf-8",
+  -- capabilities = capabilities
+-- }
 
 ---@diagnostic disable-next-line: missing-fields
 require('ufo').setup {
