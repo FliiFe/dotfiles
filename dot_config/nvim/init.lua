@@ -14,7 +14,7 @@ vim.keymap.set('n', '<Esc><Esc>', ':w<cr>')
 vim.g.mapleader = ' '
 
 vim.keymap.set('n', '<Leader>q', ':q<CR>', { silent = true, desc = "Leave!" })
-vim.keymap.set('n', '<Return>', ':set hlsearch!<CR>', { silent = true, desc = "Toggle search highlighting" })
+vim.keymap.set('n', '<Leader><Return>', ':set hlsearch!<CR>', { silent = true, desc = "Toggle search highlighting" })
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -167,6 +167,7 @@ require("lazy").setup({
   },
   {
     'hrsh7th/nvim-cmp',
+    event = { "InsertEnter", "CmdlineEnter" },
     opts = function(_, _)
       local luasnip = require 'luasnip'
       local cmp = require 'cmp'
@@ -174,6 +175,12 @@ require("lazy").setup({
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
           { name = 'buffer' }
+        }
+      })
+      cmp.setup.cmdline({ ':' }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'cmdline' }
         }
       })
       return {
@@ -194,20 +201,52 @@ require("lazy").setup({
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-          ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-              -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-              -- that way you will only jump inside the snippet region
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            elseif has_words_before() then
-              cmp.complete()
-            else
-              fallback()
+          ["<CR>"] = cmp.mapping({
+            i = function(fallback)
+              if cmp.visible() and cmp.get_active_entry() then
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+              else
+                fallback()
+              end
+            end,
+            s = cmp.mapping.confirm({ select = true }),
+            c = cmp.mapping.confirm({ select = false }),
+          }),
+          ["<Tab>"] = cmp.mapping({
+            c = function()
+              if cmp.visible() then
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+              else
+                cmp.complete()
+              end
+            end,
+            i = function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+                -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+                -- that way you will only jump inside the snippet region
+              elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+              elseif has_words_before() then
+                cmp.complete()
+              else
+                fallback()
+              end
+            end,
+            s = function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+                -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+                -- that way you will only jump inside the snippet region
+              elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+              elseif has_words_before() then
+                cmp.complete()
+              else
+                fallback()
+              end
             end
-          end, { "i", "s" }),
+          }),
 
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -338,8 +377,8 @@ for _, lsp in ipairs(servers) do
 end
 
 -- lspconfig.tinymist.setup{
-  -- offset_encoding = "utf-8",
-  -- capabilities = capabilities
+-- offset_encoding = "utf-8",
+-- capabilities = capabilities
 -- }
 
 ---@diagnostic disable-next-line: missing-fields
